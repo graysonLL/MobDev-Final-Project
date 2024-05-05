@@ -1,0 +1,11 @@
+import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
+import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+
+export default function SearchScreen({ route }) {
+  return (
+    <View>
+      <Text>Search</Text>
+    </View>
+  );
+}
