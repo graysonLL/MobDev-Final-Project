@@ -13,11 +13,11 @@ const Tab = createBottomTabNavigator();
 export function TabNavigator() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeStack} />
-      <Tab.Screen name="Search" component={SearchStack} />
-      <Tab.Screen name="Favorite" component={FavoriteStack} />
-      <Tab.Screen name="Notification" component={NotificationStack} />
-      <Tab.Screen name="Settings" component={SettingsStack} />
+      <Tab.Screen name="HomeStack" component={HomeStack} />
+      <Tab.Screen name="SearchStack" component={SearchStack} />
+      <Tab.Screen name="FavoriteStack" component={FavoriteStack} />
+      <Tab.Screen name="NotificationStack" component={NotificationStack} />
+      <Tab.Screen name="SettingsStack" component={SettingsStack} />
     </Tab.Navigator>
   );
 }
