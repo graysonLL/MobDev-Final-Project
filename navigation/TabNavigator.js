@@ -12,7 +12,11 @@ const Tab = createBottomTabNavigator();
 
 export function TabNavigator() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <Tab.Screen name="HomeStack" component={HomeStack} />
       <Tab.Screen name="SearchStack" component={SearchStack} />
       <Tab.Screen name="FavoriteStack" component={FavoriteStack} />

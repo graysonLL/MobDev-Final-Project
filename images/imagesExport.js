@@ -4,6 +4,8 @@ import j3 from "./j3.png";
 import j4 from "./j4.png";
 import j5 from "./j5.png";
 import j6 from "./j6.png";
+import jadd from "./jadd.png";
+import jadd2 from "./jadd2.jpg";
 
 export default {
   j1,
@@ -12,4 +14,6 @@ export default {
   j4,
   j5,
   j6,
+  jadd,
+  jadd2,
 };

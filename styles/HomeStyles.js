@@ -1,42 +1,25 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, StatusBar } from "react-native";
 
 const { width } = Dimensions.get("window");
 const margin = 10;
 const itemWidth = (width - margin * 2) / 2;
+const statusBarHeight = StatusBar.currentHeight || 0;
 
 const HomeStyles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    alignItems: "center",
-    justifyContent: "center",
+    marginTop:  statusBarHeight,
   },
-  itemContainer: {
-    marginBottom: 5,
-    padding: 10,
-    backgroundColor: "#f0f0f0",
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
-    height: "auto",
+  imageTop: {
+    width: "auto", 
+    height: 245,
+    resizeMode: "cover",
   },
-  itemTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  itemPrice: {
-    fontSize: 14,
-    color: "gray",
-  },
-  itemBody: {
-    fontSize: 12,
-    color: "gray",
-  },
-  itemImage: {
-    width: 150,
-    height: 100,
-    marginVertical: 10,
-  },
+  headerText : {
+    margin: 15,
+    fontSize: 20,
+  }
+  
 });
 
 export default HomeStyles;
