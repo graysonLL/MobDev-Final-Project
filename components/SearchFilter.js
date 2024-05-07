@@ -32,8 +32,8 @@ const SearchFilter = ({ data, input, setInput, selectedCategory }) => {
           style={SearchStyles.itemContainer}
           onPress={() => navigation.navigate("Product", item)}
         >
-          <Text style={SearchStyles.itemTitle}>{item.title}</Text>
           <Image source={item.image} style={SearchStyles.itemImage} />
+          <Text style={SearchStyles.itemTitle}>{item.title}</Text>
           <Text style={SearchStyles.itemPrice}>{item.price}</Text>
           <Text style={SearchStyles.itemBody}>{item.body}</Text>
         </TouchableOpacity>

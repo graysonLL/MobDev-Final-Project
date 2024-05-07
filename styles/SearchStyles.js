@@ -20,7 +20,6 @@ const SearchStyles = StyleSheet.create({
   itemContainer: {
     marginBottom: 5,
     padding: 10,
-    backgroundColor: "#f0f0f0",
     width: itemWidth,
   },
   itemTitle: {
