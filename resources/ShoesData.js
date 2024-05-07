@@ -10,6 +10,8 @@ const ShoesData = () => {
       body: "bout jordan 1",
       key: "1",
       image: images.j1,
+      notif: "Brand new Chicago 1s are out!",
+      notifBody: "Cop now!"
     },
     {
       title: "jordan 1",
@@ -17,6 +19,8 @@ const ShoesData = () => {
       body: "bout jordan 2",
       key: "2",
       image: images.j2,
+      notif: "Dunks!?",
+      notifBody: "Place an order now!"
     },
     {
       title: "jordan 3",
@@ -24,6 +28,8 @@ const ShoesData = () => {
       body: "bout jordan 3",
       key: "3",
       image: images.j3,
+      notif: "Dunk it, Jonathan!",
+      notifBody: "Dunk na!"
     },
     {
       title: "jordan 4",
@@ -31,6 +37,8 @@ const ShoesData = () => {
       body: "bout jordan 1",
       key: "4",
       image: images.j4,
+      notif: "Brand new Chicago 1s are out!",
+      notifBody: "Cop now!"
     },
     {
       title: "jordan 5",
@@ -38,6 +46,8 @@ const ShoesData = () => {
       body: "bout jordan 2",
       key: "5",
       image: images.j5,
+      notif: "Brand new Chicago 1s are out!",
+      notifBody: "Cop now!"
     },
     {
       title: "jordan 6",
@@ -45,6 +55,8 @@ const ShoesData = () => {
       body: "bout jordan 3",
       key: "6",
       image: images.j6,
+      notif: "Brand new Chicago 1s are out!",
+      notifBody: "Cop now!"
     },
     {
       title: "jordan 7",
@@ -52,6 +64,8 @@ const ShoesData = () => {
       body: "bout jordan 1",
       key: "7",
       image: images.j1,
+      notif: "Brand new Chicago 1s are out!",
+      notifBody: "Cop now!"
     },
     {
       title: "jordan 8",
@@ -59,6 +73,8 @@ const ShoesData = () => {
       body: "bout jordan 2",
       key: "8",
       image: images.j1,
+      notif: "Brand new Chicago 1s are out!",
+      notifBody: "Cop now!"
     },
     {
       title: "jordan 9",
@@ -66,6 +82,8 @@ const ShoesData = () => {
       body: "bout jordan 3",
       key: "9",
       image: images.j1,
+      notif: "Brand new Chicago 1s are out!",
+      notifBody: "Cop now!"
     },
   ]);
 
