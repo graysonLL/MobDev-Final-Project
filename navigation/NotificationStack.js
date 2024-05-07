@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 export function NotificationStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Notification" component={NotificationScreen} />
+      <Stack.Screen name="Notification Center" component={NotificationScreen} />
       <Stack.Screen name="Product" component={ProductScreen} />
       <Stack.Screen name="Checkout" component={CheckoutScreen} />
     </Stack.Navigator>
