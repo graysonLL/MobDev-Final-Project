@@ -12,6 +12,7 @@ import jordan from "./jordan.jpg"
 import converse from "./converse.png"
 import OffWhite from "./OffWhite.jpg"
 
+import dot from "./dot.png";
 
 export default {
   j1,
@@ -27,4 +28,5 @@ export default {
   jordan,
   converse,
   OffWhite,
+  dot
 };
