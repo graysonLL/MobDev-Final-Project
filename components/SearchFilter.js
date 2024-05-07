@@ -36,7 +36,6 @@ const SearchFilter = ({ data, input, setInput, selectedCategory }) => {
           <Image source={item.image} style={SearchStyles.itemImage} />
           <Text style={SearchStyles.itemPrice}>{item.price}</Text>
           <Text style={SearchStyles.itemBody}>{item.body}</Text>
-          <Text>wtf</Text>
         </TouchableOpacity>
       )}
     />
