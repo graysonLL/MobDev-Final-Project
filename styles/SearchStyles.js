@@ -2,23 +2,26 @@ import React from "react";
 import { StyleSheet, Dimensions } from "react-native";
 
 const { width } = Dimensions.get("window");
-const margin = 10;
-const itemWidth = (width - margin * 2) / 2;
+const itemWidth = width / 2;
 
 const SearchStyles = StyleSheet.create({
-  container: {
+  outerContainer: {
     flex: 1,
-    padding: 10,
     alignItems: "center",
+    marginTop: 70,
+    width: "100%",
+  },
+  listContainer: {
+    width: "100%",
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
   itemContainer: {
     marginBottom: 5,
     padding: 10,
     backgroundColor: "#f0f0f0",
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
-    height: "auto",
+    width: itemWidth,
   },
   itemTitle: {
     fontSize: 16,
@@ -46,6 +49,23 @@ const SearchStyles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 10,
     width: 300,
+  },
+  categories: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    width: "100%",
+    borderTopWidth: 1, // Border on top
+    borderBottomWidth: 1, // Border on bottom
+    borderColor: "lightgrey", // Border color
+    padding: 0,
+  },
+  categoryText: {
+    paddingHorizontal: 15,
+    padding: 5,
+  },
+  categoryTextSelected: {
+    borderBottomWidth: 1.5,
+    borderColor: "black",
   },
 });
 
