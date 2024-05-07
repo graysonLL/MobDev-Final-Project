@@ -8,11 +8,8 @@ import FavortieScreen from "../screens/FavoritesScreen";
 import { SearchStack } from "./SearchStack";
 import { FavoriteStack } from "./FavoriteStack";
 import { Image } from "react-native"; 
-import HomeIcon from "../assets/home.png"; // Import your images for each tab
-import SearchIcon from "../assets/search.png";
-import FavoriteIcon from "../assets/favorite.png";
-import NotificationIcon from "../assets/notifications.png";
-import SettingsIcon from "../assets/settings.png";
+
+import images from "../images/imagesExport";
 
 const Tab = createBottomTabNavigator();
 
@@ -21,7 +18,7 @@ export function TabNavigator() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarLabel: "", // Hide tab names
+        tabBarLabel: "", 
       }}
     >
       <Tab.Screen
@@ -30,8 +27,8 @@ export function TabNavigator() {
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
-              source={HomeIcon}
-              style={{ width: 24, height: 24, tintColor: focused ? "blue" : "gray" }}
+              source={images.home}
+              style={{ width: 24, height: 24, tintColor: focused ? "purple" : "gray" }}
             />
           ),
         }}
@@ -42,8 +39,8 @@ export function TabNavigator() {
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
-              source={SearchIcon}
-              style={{ width: 24, height: 24, tintColor: focused ? "blue" : "gray" }}
+              source={images.search}
+              style={{ width: 24, height: 24, tintColor: focused ? "purple" : "gray" }}
             />
           ),
         }}
@@ -54,8 +51,8 @@ export function TabNavigator() {
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
-              source={FavoriteIcon}
-              style={{ width: 24, height: 24, tintColor: focused ? "blue" : "gray" }}
+              source={images.favorite}
+              style={{ width: 24, height: 24, tintColor: focused ? "purple" : "gray" }}
             />
           ),
         }}
@@ -66,8 +63,8 @@ export function TabNavigator() {
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
-              source={NotificationIcon}
-              style={{ width: 24, height: 24, tintColor: focused ? "blue" : "gray" }}
+              source={images.notifications}
+              style={{ width: 24, height: 24, tintColor: focused ? "purple" : "gray" }}
             />
           ),
         }}
@@ -78,8 +75,8 @@ export function TabNavigator() {
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
-              source={SettingsIcon}
-              style={{ width: 24, height: 24, tintColor: focused ? "blue" : "gray" }}
+              source={images.settings}
+              style={{ width: 24, height: 24, tintColor: focused ? "purple" : "gray" }}
             />
           ),
         }}

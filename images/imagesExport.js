@@ -13,6 +13,16 @@ import converse from "./converse.png"
 import OffWhite from "./OffWhite.jpg"
 
 import dot from "./dot.png";
+import home from "./home.png";
+import search from "./search.png";
+import favorite from "./favorite.png";
+import notifications from "./notifications.png";
+import settings from "./settings.png";
+import profile from "./profile.png";
+import buying from "./buying.png";
+import login from "./login.png";
+import logout from "./logout.png";
+
 
 export default {
   j1,
@@ -28,5 +38,14 @@ export default {
   jordan,
   converse,
   OffWhite,
-  dot
+  dot,
+  home,
+  search,
+  favorite,
+  notifications,
+  settings,
+  profile,
+  buying,
+  login,
+  logout,
 };
