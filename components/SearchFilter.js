@@ -90,8 +90,8 @@ const styles = StyleSheet.create({
     color: "gray",
   },
   itemImage: {
-    width: 150, // Adjust the width as needed
-    height: 100, // Adjust the height as needed
-    marginVertical: 10, // Add some space above and below the image
+    width: 150, 
+    height: 100, 
+    marginVertical: 10,
   },
 });

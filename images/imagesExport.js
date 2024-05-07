@@ -6,6 +6,12 @@ import j5 from "./j5.png";
 import j6 from "./j6.png";
 import jadd from "./jadd.png";
 import jadd2 from "./jadd2.jpg";
+import adidas from "./adidas.jpg"
+import nike from "./nike.jpg"
+import jordan from "./jordan.jpg"
+import converse from "./converse.png"
+import OffWhite from "./OffWhite.jpg"
+
 
 export default {
   j1,
@@ -16,4 +22,9 @@ export default {
   j6,
   jadd,
   jadd2,
+  nike, 
+  adidas,
+  jordan,
+  converse,
+  OffWhite,
 };
