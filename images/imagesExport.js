@@ -6,6 +6,7 @@ import j5 from "./j5.png";
 import j6 from "./j6.png";
 import jadd from "./jadd.png";
 import jadd2 from "./jadd2.jpg";
+import dot from "./dot.png";
 
 export default {
   j1,
@@ -16,4 +17,5 @@ export default {
   j6,
   jadd,
   jadd2,
+  dot
 };
