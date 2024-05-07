@@ -37,6 +37,7 @@ export default function SearchScreen({ route }) {
   const handleSearchSubmit = () => {
     setIsSearching(false);
     setInput("");
+    Keyboard.dismiss();
   };
 
   const navigateSearch = () => {
@@ -44,28 +45,45 @@ export default function SearchScreen({ route }) {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={handlePressOutside}>
+    <TouchableWithoutFeedback onPress={handlePressOutside} accessible={false}>
       <KeyboardAvoidingView
         style={SearchStyles.outerContainer}
         behavior="padding"
       >
-        <TextInput
-          value={input}
-          onChangeText={(text) => setInput(text)}
-          style={SearchStyles.searchBar}
-          placeholder="Search"
-          onFocus={handleSearch}
-          onSubmitEditing={navigateSearch}
-        />
         {isSearching ? (
           <>
-            <TouchableOpacity>
-              <Text onPress={handleSearchSubmit}>Cancel</Text>
-            </TouchableOpacity>
+            <View style={SearchStyles.searchContainer}>
+              <TextInput
+                value={input}
+                onChangeText={(text) => setInput(text)}
+                style={SearchStyles.searchBar}
+                placeholder="Search"
+                onFocus={handleSearch}
+                onSubmitEditing={navigateSearch}
+              />
+              <TouchableOpacity>
+                <Text
+                  style={SearchStyles.cancelButton}
+                  onPress={handleSearchSubmit}
+                >
+                  Cancel
+                </Text>
+              </TouchableOpacity>
+            </View>
             <ActiveSearch data={shoes} input={input} />
           </>
         ) : (
           <>
+            <View style={SearchStyles.searchContainer}>
+              <TextInput
+                value={input}
+                onChangeText={(text) => setInput(text)}
+                style={SearchStyles.searchBar}
+                placeholder="Search"
+                onFocus={handleSearch}
+                onSubmitEditing={navigateSearch}
+              />
+            </View>
             <View style={SearchStyles.categories}>
               <Text
                 onPress={() => filterByCategory(null)}

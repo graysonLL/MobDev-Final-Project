@@ -39,15 +39,19 @@ const SearchStyles = StyleSheet.create({
     height: 100,
     marginVertical: 10,
   },
+  searchContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
   searchBar: {
+    flex: 1,
     fontSize: 16,
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 5,
-    marginBottom: 10,
-    width: 300,
   },
   categories: {
     flexDirection: "row",
@@ -65,6 +69,10 @@ const SearchStyles = StyleSheet.create({
   categoryTextSelected: {
     borderBottomWidth: 1.5,
     borderColor: "black",
+  },
+  cancelButton: {
+    marginLeft: 10,
+    color: "blue", // Set your desired cancel button style
   },
 });
 

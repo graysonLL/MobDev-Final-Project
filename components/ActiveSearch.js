@@ -3,6 +3,7 @@ import React from "react";
 import ActiveSearchStyles from "../styles/ActiveSearchStyles";
 import SearchData from "../resources/SearchData";
 import { useNavigation } from "@react-navigation/native";
+import { ScrollView } from "react-native-gesture-handler";
 
 const SearchFilter = ({ data, input, setInput, selectedCategory }) => {
   const navigation = useNavigation();
@@ -28,6 +29,7 @@ export default function ActiveSearch({ data, input }) {
       <Text style={ActiveSearchStyles.result}>Top Results</Text>
       <FlatList
         data={filteredShoes}
+        keyboardShouldPersistTaps="handled"
         contentContainerStyle={{ paddingBottom: 20 }}
         renderItem={({ item }) => (
           <TouchableOpacity
