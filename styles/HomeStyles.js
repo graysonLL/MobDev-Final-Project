@@ -14,6 +14,7 @@ const HomeStyles = StyleSheet.create({
     width: "auto", 
     height: 245,
     resizeMode: "cover",
+    flexDirection: "row",
   },
   headerText : {
     margin: 15,
@@ -50,6 +51,20 @@ const HomeStyles = StyleSheet.create({
   brandContainer: {
     width: 100,
     marginRight: 30,
+  },
+  adSection:{
+    marginTop: 20,
+    marginBottom: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  adImage : {
+    height: 300,
+    width: 300,
+  },
+  adText:{
+    marginTop: 8,
+    fontSize: 15,
   }
   
 });
