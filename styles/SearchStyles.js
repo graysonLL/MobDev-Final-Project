@@ -41,17 +41,28 @@ const SearchStyles = StyleSheet.create({
   },
   searchContainer: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
     marginBottom: 10,
+    width: "100%",
+    alignItems: "center",
+  },
+  searchIcon: {
+    marginLeft: "5%",
+    width: 18,
+    height: 18,
   },
   searchBar: {
-    flex: 1,
+    width: "65%",
     fontSize: 16,
-    paddingHorizontal: 12,
     paddingVertical: 8,
-    borderWidth: 1,
     borderColor: "#ccc",
-    borderRadius: 5,
+    paddingLeft: 25,
+  },
+  searchTouchableArea: {
+    marginLeft: "5%",
+    width: 24,
+    height: 38,
+    justifyContent: "center",
   },
   categories: {
     flexDirection: "row",
@@ -69,10 +80,13 @@ const SearchStyles = StyleSheet.create({
   categoryTextSelected: {
     borderBottomWidth: 1.5,
     borderColor: "black",
+    color: "black",
   },
   cancelButton: {
     marginLeft: 10,
-    color: "blue", // Set your desired cancel button style
+    color: "black",
+    textDecorationStyle: "none",
+    padding: 10,
   },
 });
 

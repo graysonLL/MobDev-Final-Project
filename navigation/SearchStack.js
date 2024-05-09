@@ -17,7 +17,11 @@ export function SearchStack() {
       />
       <Stack.Screen name="Product" component={ProductScreen} />
       <Stack.Screen name="Checkout" component={CheckoutScreen} />
-      <Stack.Screen name="Search Result" component={SearchResultScreen} />
+      <Stack.Screen
+        name="Search Result"
+        component={SearchResultScreen}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 }

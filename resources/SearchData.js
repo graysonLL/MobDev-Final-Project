@@ -64,7 +64,7 @@ const SearchData = () => {
       title: "adidas 2",
       price: "200$",
       body: "bout jordan 2",
-      category: "adidas",
+      category: "nike",
       key: "8",
       image: images.j1,
     },

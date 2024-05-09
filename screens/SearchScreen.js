@@ -5,6 +5,7 @@ import {
   TouchableWithoutFeedback,
   TextInput,
   Keyboard,
+  Image,
 } from "react-native";
 import { useState } from "react";
 import SearchStyles from "../styles/SearchStyles";
@@ -14,6 +15,8 @@ import { KeyboardAvoidingView } from "react-native";
 import ActiveSearch from "../components/ActiveSearch";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import searchImage from "../images/search.png";
+import { useRef } from "react";
 
 export default function SearchScreen({ route }) {
   const shoes = SearchData();
@@ -41,7 +44,15 @@ export default function SearchScreen({ route }) {
   };
 
   const navigateSearch = () => {
-    navigation.navigate("Search Result", { data: shoes, input: input });
+    if (input !== "") {
+      navigation.navigate("Search Result", { data: shoes, input: input });
+    }
+  };
+
+  const textInputRef = useRef(null);
+
+  const handleSearchIconPress = () => {
+    textInputRef.current.focus();
   };
 
   return (
@@ -53,21 +64,28 @@ export default function SearchScreen({ route }) {
         {isSearching ? (
           <>
             <View style={SearchStyles.searchContainer}>
+              <TouchableOpacity
+                onPress={handleSearchIconPress}
+                style={SearchStyles.searchTouchableArea}
+              >
+                <Image source={searchImage} style={SearchStyles.searchIcon} />
+              </TouchableOpacity>
               <TextInput
+                ref={textInputRef}
                 value={input}
                 onChangeText={(text) => setInput(text)}
                 style={SearchStyles.searchBar}
                 placeholder="Search"
                 onFocus={handleSearch}
                 onSubmitEditing={navigateSearch}
+                returnKeyType="search"
               />
-              <TouchableOpacity>
-                <Text
-                  style={SearchStyles.cancelButton}
-                  onPress={handleSearchSubmit}
-                >
-                  Cancel
-                </Text>
+              <TouchableOpacity
+                style={SearchStyles.cancelButton}
+                onPress={handleSearchSubmit}
+                activeOpacity={1}
+              >
+                <Text>Cancel</Text>
               </TouchableOpacity>
             </View>
             <ActiveSearch data={shoes} input={input} />
@@ -75,17 +93,26 @@ export default function SearchScreen({ route }) {
         ) : (
           <>
             <View style={SearchStyles.searchContainer}>
+              <TouchableOpacity
+                onPress={handleSearchIconPress}
+                style={SearchStyles.searchTouchableArea}
+              >
+                <Image source={searchImage} style={SearchStyles.searchIcon} />
+              </TouchableOpacity>
               <TextInput
+                ref={textInputRef}
                 value={input}
                 onChangeText={(text) => setInput(text)}
                 style={SearchStyles.searchBar}
                 placeholder="Search"
                 onFocus={handleSearch}
                 onSubmitEditing={navigateSearch}
+                returnKeyType="search"
               />
             </View>
             <View style={SearchStyles.categories}>
-              <Text
+              <TouchableOpacity
+                activeOpacity={1}
                 onPress={() => filterByCategory(null)}
                 style={[
                   SearchStyles.categoryText,
@@ -93,9 +120,18 @@ export default function SearchScreen({ route }) {
                     SearchStyles.categoryTextSelected,
                 ]}
               >
-                All
-              </Text>
-              <Text
+                <Text
+                  style={[
+                    selectedCategory === null
+                      ? { color: "black" }
+                      : { color: "grey" },
+                  ]}
+                >
+                  All
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={1}
                 onPress={() => filterByCategory("nike")}
                 style={[
                   SearchStyles.categoryText,
@@ -103,9 +139,18 @@ export default function SearchScreen({ route }) {
                     SearchStyles.categoryTextSelected,
                 ]}
               >
-                Nike
-              </Text>
-              <Text
+                <Text
+                  style={[
+                    selectedCategory === "nike"
+                      ? { color: "black" }
+                      : { color: "grey" },
+                  ]}
+                >
+                  Nike
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={1}
                 onPress={() => filterByCategory("adidas")}
                 style={[
                   SearchStyles.categoryText,
@@ -113,9 +158,18 @@ export default function SearchScreen({ route }) {
                     SearchStyles.categoryTextSelected,
                 ]}
               >
-                Adidas
-              </Text>
-              <Text
+                <Text
+                  style={[
+                    selectedCategory === "adidas"
+                      ? { color: "black" }
+                      : { color: "grey" },
+                  ]}
+                >
+                  Adidas
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={1}
                 onPress={() => filterByCategory("jordan")}
                 style={[
                   SearchStyles.categoryText,
@@ -123,8 +177,16 @@ export default function SearchScreen({ route }) {
                     SearchStyles.categoryTextSelected,
                 ]}
               >
-                Jordan
-              </Text>
+                <Text
+                  style={[
+                    selectedCategory === "jordan"
+                      ? { color: "black" }
+                      : { color: "grey" },
+                  ]}
+                >
+                  Jordan
+                </Text>
+              </TouchableOpacity>
             </View>
             <SearchFilter
               data={shoes}

@@ -7,7 +7,6 @@ const itemWidth = (width - margin * 2) / 2;
 const ActiveSearchStyles = StyleSheet.create({
   container: {
     flex: 1,
-    borderWidth: 1,
     width: "100%",
   },
   itemContainer: {
@@ -20,6 +19,16 @@ const ActiveSearchStyles = StyleSheet.create({
     flexWrap: "wrap",
   },
   result: {
+    marginBottom: 10,
+    paddingLeft: "5%",
+    paddingBottom: 10,
+    paddingTop: 10,
+    width: "100%",
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+    borderColor: "lightgrey",
+  },
+  resultText: {
     fontSize: 18,
     fontWeight: "bold",
   },

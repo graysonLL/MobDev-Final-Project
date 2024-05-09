@@ -26,7 +26,9 @@ export default function ActiveSearch({ data, input }) {
   });
   return (
     <View style={ActiveSearchStyles.container}>
-      <Text style={ActiveSearchStyles.result}>Top Results</Text>
+      <View style={ActiveSearchStyles.result}>
+        <Text style={ActiveSearchStyles.resultText}>Top Results</Text>
+      </View>
       <FlatList
         data={filteredShoes}
         keyboardShouldPersistTaps="handled"
