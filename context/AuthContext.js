@@ -66,15 +66,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const signUp = async (email, password) => {
+  const signUp = async (name, email, password) => {
     setIsLoading(true);
     if (users.find((user) => user.email === email)) {
       alert("Email already exists!");
       setIsLoading(false);
       return false;
     } else {
-      setUsers((prevUsers) => [...prevUsers, { email, password }]);
-      await saveUsers([...users, { email, password }]);
+      setUsers((prevUsers) => [...prevUsers, { name, email, password }]);
+      await saveUsers([...users, { name, email, password }]);
       alert("Sign up successful!");
       setIsLoading(false);
       return true;

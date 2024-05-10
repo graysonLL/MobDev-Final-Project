@@ -12,6 +12,18 @@ const SignupStyles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",
   },
+  signupText: {
+    color: "white",
+  },
+  signupButton: {
+    width: 340,
+    padding: 20,
+    backgroundColor: "black",
+    borderWidth: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 10,
+  },
 });
 
 export default SignupStyles;

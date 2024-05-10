@@ -15,13 +15,14 @@ import SignupStyles from "../styles/SignupStyles";
 
 export default function SignupScreen() {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const { signUp } = React.useContext(AuthContext);
   const navigation = useNavigation();
 
   const handleSignUp = () => {
-    if (email == "" || password == "" || confirmPassword == "") {
+    if (email == "" || password == "" || confirmPassword == "" || name == "") {
       alert("Please fill up all fields");
       return;
     }
@@ -29,7 +30,7 @@ export default function SignupScreen() {
       alert("Passwords do not match");
       return;
     } else {
-      var check = signUp(email, password);
+      var check = signUp(name, email, password);
       if (check == true) {
         navigation.navigate("Login");
       }
@@ -42,6 +43,12 @@ export default function SignupScreen() {
   return (
     <TouchableWithoutFeedback onPress={handlePress}>
       <View style={SignupStyles.container}>
+        <TextInput
+          style={SignupStyles.input}
+          placeholder="First and Last name"
+          onChangeText={setName}
+          value={name}
+        />
         <TextInput
           style={SignupStyles.input}
           placeholder="Email"
@@ -63,7 +70,12 @@ export default function SignupScreen() {
           secureTextEntry
           value={confirmPassword}
         />
-        <Button title="Signup" onPress={handleSignUp} />
+        <TouchableOpacity
+          onPress={handleSignUp}
+          style={SignupStyles.signupButton}
+        >
+          <Text style={SignupStyles.signupText}>SIGN UP</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("Login")}>
           <Text style={SignupStyles.signUpText}>
             Already have an account? Login

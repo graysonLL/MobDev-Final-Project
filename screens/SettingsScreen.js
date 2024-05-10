@@ -1,4 +1,11 @@
-import { Text, StyleSheet, View, Button, TouchableOpacity, Image } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Button,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
@@ -11,22 +18,31 @@ export default function SettingsScreen({ route }) {
 
   return (
     <View>
-      <TouchableOpacity onPress={() => navigation.navigate("Profile")} style={styles.itemContainer}>
-        <Image source={images.profile} style={styles.image}/>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Profile")}
+        style={styles.itemContainer}
+      >
+        <Image source={images.profile} style={styles.image} />
         <View style={styles.itemContent}>
           <Text style={styles.heading}>Profile</Text>
           <Text>Name, Email, Password, Shoe Size</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("Buying")} style={styles.itemContainer}>
-        <Image source={images.buying} style={styles.image}/>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Buying")}
+        style={styles.itemContainer}
+      >
+        <Image source={images.buying} style={styles.image} />
         <View style={styles.itemContent}>
           <Text style={styles.heading}>Buying</Text>
           <Text>In-Progress, Orders</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("Login")} style={styles.itemContainer}>
-        <Image source={images.login} style={styles.image}/>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Login")}
+        style={styles.itemContainer}
+      >
+        <Image source={images.login} style={styles.image} />
         <View style={styles.itemContent}>
           <Text style={styles.heading}>Login</Text>
         </View>
@@ -37,7 +53,7 @@ export default function SettingsScreen({ route }) {
         }}
         style={styles.itemContainer}
       >
-        <Image source={images.logout} style={styles.image}/>
+        <Image source={images.logout} style={styles.image} />
         <View style={styles.itemContent}>
           <Text style={styles.heading}>Logout</Text>
         </View>
@@ -57,15 +73,13 @@ const styles = StyleSheet.create({
     height: "auto",
     borderWidth: 1, // Specify the border width
     borderColor: "#000", // Specify the border color
-    flexDirection: "row"
+    flexDirection: "row",
   },
 
-  itemContent: {
-
-  },
+  itemContent: {},
 
   image: {
-    width: 24, 
+    width: 24,
     height: 24,
     marginRight: 12,
     alignSelf: "center",
@@ -74,6 +88,5 @@ const styles = StyleSheet.create({
   heading: {
     fontWeight: "bold",
     marginBottom: 5,
-  }
-
+  },
 });

@@ -44,7 +44,9 @@ export default function LoginScreen() {
           secureTextEntry
           value={password}
         />
-        <Button title="Login" onPress={handleLogin} />
+        <TouchableOpacity onPress={handleLogin} style={LoginStyles.loginButton}>
+          <Text style={LoginStyles.loginText}>LOGIN</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
           <Text style={LoginStyles.signUpText}>
             Don't have an account? Sign up
