@@ -17,6 +17,7 @@ import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import searchImage from "../images/search.png";
 import { useRef } from "react";
+import RecentSearch from "../components/RecentSearch";
 
 export default function SearchScreen({ route }) {
   const shoes = SearchData();
@@ -24,6 +25,7 @@ export default function SearchScreen({ route }) {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [isSearching, setIsSearching] = useState(false);
   const navigation = useNavigation();
+  const [recentSearches, setRecentSearches] = useState([]);
 
   const handlePressOutside = () => {
     Keyboard.dismiss();
@@ -45,7 +47,10 @@ export default function SearchScreen({ route }) {
 
   const navigateSearch = () => {
     if (input !== "") {
+      updateRecentSearches(input);
       navigation.navigate("Search Result", { data: shoes, input: input });
+    } else {
+      setIsSearching(false);
     }
   };
 
@@ -53,6 +58,14 @@ export default function SearchScreen({ route }) {
 
   const handleSearchIconPress = () => {
     textInputRef.current.focus();
+  };
+
+  const updateRecentSearches = (input) => {
+    setRecentSearches((recentSearches) => [input, ...recentSearches]);
+  };
+
+  const clearRecentSearches = () => {
+    setRecentSearches([]);
   };
 
   return (
@@ -88,6 +101,12 @@ export default function SearchScreen({ route }) {
                 <Text>Cancel</Text>
               </TouchableOpacity>
             </View>
+            <RecentSearch
+              recentSearches={recentSearches}
+              data={shoes}
+              input={input}
+              clearRecentSearches={clearRecentSearches}
+            />
             <ActiveSearch data={shoes} input={input} />
           </>
         ) : (

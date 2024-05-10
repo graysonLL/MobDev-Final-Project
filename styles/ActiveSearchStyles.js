@@ -9,6 +9,37 @@ const ActiveSearchStyles = StyleSheet.create({
     flex: 1,
     width: "100%",
   },
+  containerRecent: {
+    width: "100%",
+  },
+  recentSearch: {
+    padding: 10,
+    paddingRight: 20,
+    paddingLeft: 20,
+    borderColor: "lightgrey",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    color: "lightgrey",
+    justifyContent: "space-between",
+  },
+  clearButton: {
+    borderWidth: 1,
+    borderRadius: 20,
+    padding: 4,
+  },
+  clearText: {
+    fontSize: 10,
+  },
+  recentSearchContainer: {
+    padding: 10,
+    paddingLeft: 20,
+    borderColor: "lightgrey",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    color: "lightgrey",
+    borderBottomWidth: 1,
+    borderColor: "lightgrey",
+  },
   itemContainer: {
     padding: 10,
     borderRadius: 5,
@@ -24,8 +55,7 @@ const ActiveSearchStyles = StyleSheet.create({
     paddingBottom: 10,
     paddingTop: 10,
     width: "100%",
-    borderBottomWidth: 1,
-    borderTopWidth: 1,
+
     borderColor: "lightgrey",
   },
   resultText: {
