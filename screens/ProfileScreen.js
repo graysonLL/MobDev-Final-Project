@@ -4,7 +4,11 @@ import { useNavigation } from "@react-navigation/native";
 
 import images from "../images/imagesExport";
 
+import Users from "../resources/Users";
+
 export default function ProfileScreen({ route }) {
+
+  const user = Users[0];
   return (
     <ScrollView>
 
@@ -18,19 +22,19 @@ export default function ProfileScreen({ route }) {
           <Text style={styles.header}>Personal Information</Text>
 
           <Text style={styles.header1}>Name</Text>
-          <Text>John Doe</Text>
+          <Text>{user.name}</Text>
 
           <Text style={styles.header1}>Username</Text>
-          <Text>lisanalgaib42</Text>
+          <Text>{user.username}</Text>
 
           <Text style={styles.header1}>Email</Text>
-          <Text>johndoe3@gmail.com</Text>
+          <Text>{user.email}</Text>
 
           <Text style={styles.header1}>Phone Number</Text>
-          <Text>+63 917 165 1123</Text>
+          <Text>{user.number}</Text>
 
           <Text style={styles.header1}>Shoe Size</Text>
-          <Text>10</Text>
+          <Text>{user.size}</Text>
 
           <Text style={styles.header1}>Password</Text>
           <Text>*************</Text>
@@ -53,31 +57,31 @@ export default function ProfileScreen({ route }) {
           <Text style={styles.header}>Shipping </Text>
 
           <Text style={styles.header1}>First Name</Text>
-          <Text>John</Text>
+          <Text>{user.firstName}</Text>
 
           <Text style={styles.header1}>Last Name</Text>
-          <Text>Doe</Text>
+          <Text>{user.lastName}</Text>
 
           <Text style={styles.header1}>Country</Text>
-          <Text>Philippines</Text>
+          <Text>{user.country}</Text>
 
           <Text style={styles.header1}>Address</Text>
-          <Text>2118 California Street</Text>
+          <Text>{user.address}</Text>
 
           <Text style={styles.header1}>Address 2</Text>
-          <Text>Maria Luisa Condominium, Unit 148</Text>
+          <Text>{user.address2}</Text>
 
           <Text style={styles.header1}>City</Text>
-          <Text>Mandaue</Text>
+          <Text>{user.city}</Text>
 
           <Text style={styles.header1}>State/Region</Text>
-          <Text>Region VII - Central Visayas</Text>
+          <Text>{user.region}</Text>
 
           <Text style={styles.header1}>Postal Code</Text>
-          <Text>6014</Text>
+          <Text>{user.postalCode}</Text>
 
           <Text style={styles.header1}>Phone Number</Text>
-          <Text>+63 917 165 1123</Text>
+          <Text>{user.shippingNumber}</Text>
 
         </View>
 
