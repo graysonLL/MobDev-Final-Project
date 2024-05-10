@@ -5,7 +5,7 @@ import images from "../images/imagesExport";
 const ShoesData = () => {
   const [shoes, setShoes] = useState([
     {
-      title: "jordan 1",
+      title: "Jordan 1",
       price: "100$",
       body: "bout jordan 1",
       key: "1",
@@ -14,7 +14,7 @@ const ShoesData = () => {
       notifBody: "Cop now!"
     },
     {
-      title: "jordan 1",
+      title: "Air Jordan 1 Low - White/Beige",
       price: "200$",
       body: "bout jordan 2",
       key: "2",
@@ -23,7 +23,7 @@ const ShoesData = () => {
       notifBody: "Place an order now!"
     },
     {
-      title: "jordan 3",
+      title: "Jordan 3",
       price: "300$",
       body: "bout jordan 3",
       key: "3",
@@ -32,7 +32,7 @@ const ShoesData = () => {
       notifBody: "Dunk na!"
     },
     {
-      title: "jordan 4",
+      title: "Jordan 4",
       price: "100$",
       body: "bout jordan 1",
       key: "4",
@@ -41,7 +41,7 @@ const ShoesData = () => {
       notifBody: "Cop now!"
     },
     {
-      title: "jordan 5",
+      title: "Jordan 5",
       price: "200$",
       body: "bout jordan 2",
       key: "5",
@@ -50,7 +50,7 @@ const ShoesData = () => {
       notifBody: "Cop now!"
     },
     {
-      title: "jordan 6",
+      title: "Jordan 6",
       price: "300$",
       body: "bout jordan 3",
       key: "6",
@@ -59,7 +59,7 @@ const ShoesData = () => {
       notifBody: "Cop now!"
     },
     {
-      title: "jordan 7",
+      title: "Jordan 7",
       price: "100$",
       body: "bout jordan 1",
       key: "7",
@@ -68,7 +68,7 @@ const ShoesData = () => {
       notifBody: "Cop now!"
     },
     {
-      title: "jordan 8",
+      title: "Jordan 8",
       price: "200$",
       body: "bout jordan 2",
       key: "8",
@@ -77,7 +77,7 @@ const ShoesData = () => {
       notifBody: "Cop now!"
     },
     {
-      title: "jordan 9",
+      title: "Jordan 9",
       price: "300$",
       body: "bout jordan 3",
       key: "9",

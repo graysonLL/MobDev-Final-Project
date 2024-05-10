@@ -12,7 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 import FavoriteList from "../resources/FavoriteList";
 import FavoritesStyles from "../styles/FavoritesStyles";
 
-export default function FavoritesScreen({ route }) {
+export default function FavoritesScreen({}) {
   const navigation = useNavigation();
   const shoes = FavoriteList();
   const { width } = Dimensions.get("window");
