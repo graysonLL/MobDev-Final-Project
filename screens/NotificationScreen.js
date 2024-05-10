@@ -46,13 +46,13 @@ const styles = StyleSheet.create({
   itemContainer: {
     marginBottom: 0,
     padding: 5,
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "white",
     borderRadius: 1,
     // alignItems: "center",
     // justifyContent: "center",
     height: "auto",
-    borderWidth: 0.5, // Specify the border width
-    borderColor: "#000", // Specify the border color
+    borderWidth: 0.5, 
+    borderColor: "#000", 
     flexDirection: "row"
   },
   itemTitle: {
@@ -69,9 +69,9 @@ const styles = StyleSheet.create({
     color: "gray",
   },
   itemImage: {
-    width: 75, // Adjust the width as needed
-    height: 50, // Adjust the height as needed
-    marginVertical: 3, // Add some space above and below the image
+    width: 75, 
+    height: 50, 
+    marginVertical: 3,
     overflow: "hidden",
     borderWidth: 1,
     borderColor: "gray",
@@ -81,8 +81,8 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   dot: {
-    width: 0.5, // Adjust the width as needed
-    height: 5.5, // Adjust the height as needed
+    width: 0.5, 
+    height: 5.5, 
     alignSelf: "center",
     padding: 5,
     marginRight: 10,

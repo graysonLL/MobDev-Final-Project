@@ -22,6 +22,7 @@ import profile from "./profile.png";
 import buying from "./buying.png";
 import login from "./login.png";
 import logout from "./logout.png";
+import shipping from "./shipping.png";
 
 export default {
   j1,
@@ -47,4 +48,5 @@ export default {
   buying,
   login,
   logout,
+  shipping
 };
