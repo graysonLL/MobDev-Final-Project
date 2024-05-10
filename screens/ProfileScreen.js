@@ -8,11 +8,21 @@ import Users from "../resources/Users";
 
 export default function ProfileScreen({ route }) {
 
+  const navigation = useNavigation();
   const user = Users[0];
+
+  const handleEditProfile = () => {
+    navigation.navigate("EditProfile", { user });
+  };
+
+  const handleEditShipping = () => {
+    navigation.navigate("EditShipping", { user });
+  };
+
   return (
     <ScrollView>
 
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity style={styles.container} onPress={handleEditProfile}>
 
         <View style={styles.left}>
           <Image source={images.profile} style={styles.image1} />
@@ -47,7 +57,7 @@ export default function ProfileScreen({ route }) {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity style={styles.container} onPress={handleEditShipping}>
 
         <View style={styles.left}>
           <Image source={images.shipping} style={styles.image2} />
@@ -126,8 +136,8 @@ const styles = StyleSheet.create({
   },
 
   image2: {
-    height: 30,
-    width: 30,
+    height: 20,
+    width: 20,
     marginTop: 0,
   },
 
@@ -148,7 +158,8 @@ const styles = StyleSheet.create({
   link: {
     fontSize: 16,
     color: "purple",
-    marginTop: 12,
+    marginTop: 3,
     fontWeight: "bold",
+    alignSelf: "flex-end", 
   }
 });
