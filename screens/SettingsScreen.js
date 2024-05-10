@@ -39,15 +39,6 @@ export default function SettingsScreen({ route }) {
         </View>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => navigation.navigate("Login")}
-        style={styles.itemContainer}
-      >
-        <Image source={images.login} style={styles.image} />
-        <View style={styles.itemContent}>
-          <Text style={styles.heading}>Login</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity
         onPress={() => {
           logout();
         }}
