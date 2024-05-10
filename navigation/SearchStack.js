@@ -15,7 +15,11 @@ export function SearchStack() {
         component={SearchScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Product" component={ProductScreen} />
+      <Stack.Screen
+        name="Product"
+        component={ProductScreen}
+        options={({ route }) => ({ title: route.params.title })}
+      />
       <Stack.Screen name="Checkout" component={CheckoutScreen} />
       <Stack.Screen
         name="Search Result"

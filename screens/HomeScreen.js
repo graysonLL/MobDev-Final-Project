@@ -36,7 +36,7 @@ export default function HomeScreen({}) {
     }, 6000); 
 
     return () => clearInterval(interval); 
-  }, [])
+  }, [shoes])
 
   useEffect(() => {
     Animated.timing(pan, {
@@ -58,7 +58,7 @@ export default function HomeScreen({}) {
 
       <View style={HomeStyles.adSection}>
         <Image source={AdImage} style={HomeStyles.adImage}/>
-        <Text style={HomeStyles.adText}>Show Now!</Text>
+        <Text style={HomeStyles.adText}>Shop Now!</Text>
 
       </View>
 

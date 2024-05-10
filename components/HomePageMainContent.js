@@ -14,7 +14,7 @@ const MainContent = ({navigation, products, brands}) => {
             onPress={()=>navigation.navigate("Product", products[1])}>
               <View style={HomeStyles.productContainer}>
                 <Image source={products[1].image} style={HomeStyles.recommendedImages}/>
-                <Text style={HomeStyles.shoeTitle}>Jordan 1</Text>
+                <Text style={HomeStyles.shoeTitle}>Jordan 2</Text>
               </View>
             </TouchableOpacity>
 
