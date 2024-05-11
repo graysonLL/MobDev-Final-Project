@@ -31,9 +31,6 @@ export default function SignupScreen() {
       return;
     } else {
       var check = signUp(name, email, password);
-      if (check == true) {
-        navigation.navigate("Login");
-      }
     }
   };
   const handlePress = () => {

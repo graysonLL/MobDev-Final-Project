@@ -8,6 +8,15 @@ export const AuthProvider = ({ children }) => {
   const [userToken, setUserToken] = useState(null);
   const [users, setUsers] = useState([]);
 
+  const clearAsyncStorage = async () => {
+    try {
+      await AsyncStorage.clear();
+      console.log("AsyncStorage cleared successfully.");
+    } catch (error) {
+      console.error("Error clearing AsyncStorage:", error);
+    }
+  };
+
   const login = async (email, password) => {
     if (email == "" || password == "") {
       alert("Please fill up all fields");
@@ -73,14 +82,28 @@ export const AuthProvider = ({ children }) => {
       setIsLoading(false);
       return false;
     } else {
-      setUsers((prevUsers) => [...prevUsers, { name, email, password }]);
-      await saveUsers([...users, { name, email, password }]);
+      const newUser = {
+        name,
+        email,
+        password,
+        phoneNumber: "",
+        shoeSize: "",
+        username: "",
+        country: "",
+        address1: "",
+        address2: "",
+        city: "",
+        region: "",
+        postalCode: "",
+        shippingNumber: "",
+      };
+      setUsers((prevUsers) => [...prevUsers, newUser]);
+      await saveUsers([...users, newUser]);
       alert("Sign up successful!");
       setIsLoading(false);
-      return true;
+      await login(email, password);
     }
   };
-
   const isLoggedIn = async () => {
     try {
       setIsLoading(true);
@@ -98,7 +121,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ login, logout, signUp, isLoading, userToken }}
+      value={{ login, logout, signUp, isLoading, userToken, users }}
     >
       {children}
     </AuthContext.Provider>
