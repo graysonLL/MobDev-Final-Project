@@ -206,6 +206,63 @@ export default function SearchScreen({ route }) {
                   Jordan
                 </Text>
               </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={1}
+                onPress={() => filterByCategory("converse")}
+                style={[
+                  SearchStyles.categoryText,
+                  selectedCategory === "converse" &&
+                    SearchStyles.categoryTextSelected,
+                ]}
+              >
+                <Text
+                  style={[
+                    selectedCategory === "converse"
+                      ? { color: "black" }
+                      : { color: "grey" },
+                  ]}
+                >
+                  Converse
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={1}
+                onPress={() => filterByCategory("vans")}
+                style={[
+                  SearchStyles.categoryText,
+                  selectedCategory === "vans" &&
+                    SearchStyles.categoryTextSelected,
+                ]}
+              >
+                <Text
+                  style={[
+                    selectedCategory === "vans"
+                      ? { color: "black" }
+                      : { color: "grey" },
+                  ]}
+                >
+                  Vans
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={1}
+                onPress={() => filterByCategory("puma")}
+                style={[
+                  SearchStyles.categoryText,
+                  selectedCategory === "puma" &&
+                    SearchStyles.categoryTextSelected,
+                ]}
+              >
+                <Text
+                  style={[
+                    selectedCategory === "puma"
+                      ? { color: "black" }
+                      : { color: "grey" },
+                  ]}
+                >
+                  Puma
+                </Text>
+              </TouchableOpacity>
             </View>
             <SearchFilter
               data={shoes}

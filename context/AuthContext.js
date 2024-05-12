@@ -18,7 +18,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
-    console.log("wtf");
     if (email === "" || password === "") {
       alert("Please fill up all fields");
       return;
@@ -32,6 +31,7 @@ export const AuthProvider = ({ children }) => {
       );
       if (user) {
         setUserToken(user.email);
+        await AsyncStorage.setItem("userToken", user.email);
         return;
       }
     }
@@ -63,8 +63,8 @@ export const AuthProvider = ({ children }) => {
 
   const saveUsers = async (updatedUsers) => {
     try {
-      setUsers(updatedUsers); 
-      await AsyncStorage.setItem("users", JSON.stringify(updatedUsers)); 
+      setUsers(updatedUsers);
+      await AsyncStorage.setItem("users", JSON.stringify(updatedUsers));
     } catch (error) {
       console.error("Error saving users: ", error);
     }
