@@ -14,8 +14,8 @@ export function SettingsStack() {
     <Stack.Navigator>
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
-      <Stack.Screen name="EditProfile" component={EditProfileScreen} />
-      <Stack.Screen name="EditShipping" component={EditShippingScreen} />
+      <Stack.Screen name="Edit Profile" component={EditProfileScreen} />
+      <Stack.Screen name="Edit Shipping Details" component={EditShippingScreen} />
       <Stack.Screen name="Buying" component={BuyingScreen} />
     </Stack.Navigator>
   );

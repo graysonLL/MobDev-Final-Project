@@ -67,11 +67,24 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const saveUsers = async (users) => {
+  const saveUsers = async (updatedUsers) => {
     try {
-      await AsyncStorage.setItem("users", JSON.stringify(users));
+      setUsers(updatedUsers); 
+      await AsyncStorage.setItem("users", JSON.stringify(updatedUsers)); 
     } catch (error) {
       console.error("Error saving users: ", error);
+    }
+  };
+
+  const updateUser = async (updatedUser) => {
+    try {
+      const updatedUsers = users.map((user) =>
+        user.email === updatedUser.email ? updatedUser : user
+      );
+      await AsyncStorage.setItem("users", JSON.stringify(updatedUsers));
+      setUsers(updatedUsers);
+    } catch (error) {
+      console.error("Error updating user:", error);
     }
   };
 
@@ -121,7 +134,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ login, logout, signUp, isLoading, userToken, users }}
+      value={{ login, logout, signUp, updateUser, isLoading, userToken, users }}
     >
       {children}
     </AuthContext.Provider>

@@ -13,7 +13,6 @@ import { AuthContext } from "../context/AuthContext";
 
 import images from "../images/imagesExport";
 
-import Users from "../resources/Users";
 
 export default function ProfileScreen({ route }) {
   const { users, userToken } = useContext(AuthContext);
@@ -21,14 +20,13 @@ export default function ProfileScreen({ route }) {
   const currentUser = users.find((user) => user.email === userToken);
 
   const navigation = useNavigation();
-  const user = Users[0];
 
   const handleEditProfile = () => {
-    navigation.navigate("EditProfile", { user });
+    navigation.navigate("Edit Profile", { user: currentUser });
   };
 
   const handleEditShipping = () => {
-    navigation.navigate("EditShipping", { user });
+    navigation.navigate("Edit Shipping Details", { user: currentUser });
   };
 
   return (
@@ -53,7 +51,7 @@ export default function ProfileScreen({ route }) {
           <Text style={styles.header1}>Phone Number</Text>
           <Text>{currentUser.number}</Text>
 
-          <Text style={styles.header1}>Shoe Size</Text>
+          <Text style={styles.header1}>Shoe Size (US)</Text>
           <Text>{currentUser.size}</Text>
 
           <Text style={styles.header1}>Password</Text>
