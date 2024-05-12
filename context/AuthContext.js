@@ -18,31 +18,25 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
-    if (email == "" || password == "") {
+    console.log("wtf");
+    if (email === "" || password === "") {
       alert("Please fill up all fields");
       return;
     }
-    setIsLoading(true);
-    try {
-      const savedUsers = await AsyncStorage.getItem("users");
-      if (savedUsers) {
-        const parsedUsers = JSON.parse(savedUsers);
-        const user = parsedUsers.find(
-          (user) => user.email === email && user.password === password
-        );
-        if (user) {
-          setUserToken(user.email);
-          await AsyncStorage.setItem("userToken", user.email);
-          setIsLoading(false);
-          return;
-        }
+
+    const savedUsers = await AsyncStorage.getItem("users");
+    if (savedUsers) {
+      const parsedUsers = JSON.parse(savedUsers);
+      const user = parsedUsers.find(
+        (user) => user.email === email && user.password === password
+      );
+      if (user) {
+        setUserToken(user.email);
+        return;
       }
-      alert("Invalid email or password");
-    } catch (error) {
-      console.error("Error logging in: ", error);
-      alert("Error logging in. Please try again.");
     }
-    setIsLoading(false);
+
+    alert("Invalid email or password");
   };
 
   const logout = () => {
