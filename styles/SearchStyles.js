@@ -72,6 +72,7 @@ const SearchStyles = StyleSheet.create({
     borderBottomWidth: 1, // Border on bottom
     borderColor: "lightgrey", // Border color
     padding: 0,
+    margin: 0,
   },
   categoryText: {
     paddingHorizontal: 15,

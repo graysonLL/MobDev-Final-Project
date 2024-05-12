@@ -6,6 +6,7 @@ import {
   TextInput,
   Keyboard,
   Image,
+  ScrollView,
 } from "react-native";
 import { useState } from "react";
 import SearchStyles from "../styles/SearchStyles";
@@ -129,141 +130,147 @@ export default function SearchScreen({ route }) {
                 returnKeyType="search"
               />
             </View>
-            <View style={SearchStyles.categories}>
-              <TouchableOpacity
-                activeOpacity={1}
-                onPress={() => filterByCategory(null)}
-                style={[
-                  SearchStyles.categoryText,
-                  selectedCategory === null &&
-                    SearchStyles.categoryTextSelected,
-                ]}
-              >
-                <Text
+            <ScrollView
+              horizontal
+              style={{ flexGrow: 0 }}
+              showsHorizontalScrollIndicator={false}
+            >
+              <View style={SearchStyles.categories}>
+                <TouchableOpacity
+                  activeOpacity={1}
+                  onPress={() => filterByCategory(null)}
                   style={[
-                    selectedCategory === null
-                      ? { color: "black" }
-                      : { color: "grey" },
+                    SearchStyles.categoryText,
+                    selectedCategory === null &&
+                      SearchStyles.categoryTextSelected,
                   ]}
                 >
-                  All
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={1}
-                onPress={() => filterByCategory("nike")}
-                style={[
-                  SearchStyles.categoryText,
-                  selectedCategory === "nike" &&
-                    SearchStyles.categoryTextSelected,
-                ]}
-              >
-                <Text
+                  <Text
+                    style={[
+                      selectedCategory === null
+                        ? { color: "black" }
+                        : { color: "grey" },
+                    ]}
+                  >
+                    All
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={1}
+                  onPress={() => filterByCategory("nike")}
                   style={[
-                    selectedCategory === "nike"
-                      ? { color: "black" }
-                      : { color: "grey" },
+                    SearchStyles.categoryText,
+                    selectedCategory === "nike" &&
+                      SearchStyles.categoryTextSelected,
                   ]}
                 >
-                  Nike
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={1}
-                onPress={() => filterByCategory("adidas")}
-                style={[
-                  SearchStyles.categoryText,
-                  selectedCategory === "adidas" &&
-                    SearchStyles.categoryTextSelected,
-                ]}
-              >
-                <Text
+                  <Text
+                    style={[
+                      selectedCategory === "nike"
+                        ? { color: "black" }
+                        : { color: "grey" },
+                    ]}
+                  >
+                    Nike
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={1}
+                  onPress={() => filterByCategory("adidas")}
                   style={[
-                    selectedCategory === "adidas"
-                      ? { color: "black" }
-                      : { color: "grey" },
+                    SearchStyles.categoryText,
+                    selectedCategory === "adidas" &&
+                      SearchStyles.categoryTextSelected,
                   ]}
                 >
-                  Adidas
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={1}
-                onPress={() => filterByCategory("jordan")}
-                style={[
-                  SearchStyles.categoryText,
-                  selectedCategory === "jordan" &&
-                    SearchStyles.categoryTextSelected,
-                ]}
-              >
-                <Text
+                  <Text
+                    style={[
+                      selectedCategory === "adidas"
+                        ? { color: "black" }
+                        : { color: "grey" },
+                    ]}
+                  >
+                    Adidas
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={1}
+                  onPress={() => filterByCategory("jordan")}
                   style={[
-                    selectedCategory === "jordan"
-                      ? { color: "black" }
-                      : { color: "grey" },
+                    SearchStyles.categoryText,
+                    selectedCategory === "jordan" &&
+                      SearchStyles.categoryTextSelected,
                   ]}
                 >
-                  Jordan
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={1}
-                onPress={() => filterByCategory("converse")}
-                style={[
-                  SearchStyles.categoryText,
-                  selectedCategory === "converse" &&
-                    SearchStyles.categoryTextSelected,
-                ]}
-              >
-                <Text
+                  <Text
+                    style={[
+                      selectedCategory === "jordan"
+                        ? { color: "black" }
+                        : { color: "grey" },
+                    ]}
+                  >
+                    Jordan
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={1}
+                  onPress={() => filterByCategory("converse")}
                   style={[
-                    selectedCategory === "converse"
-                      ? { color: "black" }
-                      : { color: "grey" },
+                    SearchStyles.categoryText,
+                    selectedCategory === "converse" &&
+                      SearchStyles.categoryTextSelected,
                   ]}
                 >
-                  Converse
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={1}
-                onPress={() => filterByCategory("vans")}
-                style={[
-                  SearchStyles.categoryText,
-                  selectedCategory === "vans" &&
-                    SearchStyles.categoryTextSelected,
-                ]}
-              >
-                <Text
+                  <Text
+                    style={[
+                      selectedCategory === "converse"
+                        ? { color: "black" }
+                        : { color: "grey" },
+                    ]}
+                  >
+                    Converse
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={1}
+                  onPress={() => filterByCategory("vans")}
                   style={[
-                    selectedCategory === "vans"
-                      ? { color: "black" }
-                      : { color: "grey" },
+                    SearchStyles.categoryText,
+                    selectedCategory === "vans" &&
+                      SearchStyles.categoryTextSelected,
                   ]}
                 >
-                  Vans
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={1}
-                onPress={() => filterByCategory("puma")}
-                style={[
-                  SearchStyles.categoryText,
-                  selectedCategory === "puma" &&
-                    SearchStyles.categoryTextSelected,
-                ]}
-              >
-                <Text
+                  <Text
+                    style={[
+                      selectedCategory === "vans"
+                        ? { color: "black" }
+                        : { color: "grey" },
+                    ]}
+                  >
+                    Vans
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={1}
+                  onPress={() => filterByCategory("puma")}
                   style={[
-                    selectedCategory === "puma"
-                      ? { color: "black" }
-                      : { color: "grey" },
+                    SearchStyles.categoryText,
+                    selectedCategory === "puma" &&
+                      SearchStyles.categoryTextSelected,
                   ]}
                 >
-                  Puma
-                </Text>
-              </TouchableOpacity>
-            </View>
+                  <Text
+                    style={[
+                      selectedCategory === "puma"
+                        ? { color: "black" }
+                        : { color: "grey" },
+                    ]}
+                  >
+                    Puma
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </ScrollView>
             <SearchFilter
               data={shoes}
               input={input}
