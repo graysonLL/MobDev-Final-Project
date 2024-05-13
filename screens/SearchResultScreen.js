@@ -97,7 +97,7 @@ export default function SearchResultScreen({ route }) {
               renderItem={({ item }) => (
                 <TouchableOpacity
                   style={[SearchStyles.itemContainer]}
-                  onPress={() => navigation.navigate("Product", item)}
+                  onPress={() => navigation.navigate("Product", { item })}
                 >
                   <View>
                     <Image source={item.image} style={SearchStyles.itemImage} />

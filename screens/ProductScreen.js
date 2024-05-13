@@ -9,12 +9,15 @@ import {
   Modal,
   StatusBar,
 } from "react-native";
+// <<<<<<< HEAD
+// import React, { useState } from "react";
+// import styles from "../styles/ProductStyles";
+// =======
 import React, { useState, useEffect } from "react";
 import styles from "../styles/ProductStyles";
 import HomeStyles from "../styles/HomeStyles";
 import ShoesData from "../resources/ShoesData";
 import sizingChart from "../images/shoesSizes.png";
-
 import { useNavigation } from "@react-navigation/native";
 import { Picker } from "@react-native-picker/picker";
 import FavoriteList from "../resources/FavoriteList";
@@ -22,32 +25,9 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// <<<<<<< HEAD
-// export default function ProductScreen({ route }) {
-//   const { item } = route.params;
-//   const { title, price, body, image, category } = item;
-//   const navigation = useNavigation();
-//   const [selectedSize, setSelectedSize] = useState();
-//   const sizes = [
-//     "7",
-//     "7.5",
-//     "8",
-//     "8.5",
-//     "9",
-//     "9.5",
-//     "10",
-//     "10.5",
-//     "11",
-//     "12",
-//     "13",
-//   ];
-// =======
-
-export default function ProductScreen({
-  route: {
-    params: { title, price, body, image, color },
-  },
-}) {
+export default function ProductScreen({ route }) {
+  const { item } = route.params;
+  const { title, price, body, image, category, color } = item;
   const navigation = useNavigation();
   const [selectedSize, setSelectedSize] = useState();
   const sizes = [
@@ -94,15 +74,10 @@ export default function ProductScreen({
     }
   };
   return (
-    // <<<<<<< HEAD
-    //     <View style={styles.mainContainer}>
-    //       <TouchableOpacity onPress={addToFavorites}>
-    //         <Text>add to favorite</Text>
-    //       </TouchableOpacity>
-    //       <View style={styles.picContainer}>
-    //         <Image source={image} style={styles.itemImage} />
-    // =======
     <View style={styles.container}>
+      <TouchableOpacity onPress={addToFavorites}>
+        <Text>add to favorite</Text>
+      </TouchableOpacity>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.picContainer}>
           <Image source={image} style={styles.itemImage} />
@@ -185,7 +160,9 @@ export default function ProductScreen({
             >
               <View style={{ flexDirection: "row" }}>
                 <TouchableOpacity
-                  onPress={() => navigation.push("Product", products[1])}
+                  onPress={() =>
+                    navigation.push("Product", { item: products[1] })
+                  }
                 >
                   <View style={HomeStyles.productContainer}>
                     <Image
@@ -197,7 +174,9 @@ export default function ProductScreen({
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                  onPress={() => navigation.push("Product", products[3])}
+                  onPress={() =>
+                    navigation.push("Product", { item: products[3] })
+                  }
                 >
                   <View style={HomeStyles.productContainer}>
                     <Image
@@ -209,7 +188,9 @@ export default function ProductScreen({
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                  onPress={() => navigation.push("Product", products[5])}
+                  onPress={() =>
+                    navigation.push("Product", { item: products[5] })
+                  }
                 >
                   <View style={HomeStyles.productContainer}>
                     <Image
@@ -221,7 +202,9 @@ export default function ProductScreen({
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                  onPress={() => navigation.push("Product", products[2])}
+                  onPress={() =>
+                    navigation.push("Product", { item: products[2] })
+                  }
                 >
                   <View style={HomeStyles.productContainer}>
                     <Image
@@ -249,7 +232,6 @@ export default function ProductScreen({
       </View>
       {/* Buttons section */}
 
-      {/* <<<<<<< HEAD
       {/* Size seciton */}
       <View style={styles.sizeContainer}>
         <View style={styles.sizeText}>
@@ -275,7 +257,7 @@ export default function ProductScreen({
           </Picker>
         </View>
       </View>
-      {/* Size seciton */}
+
       {/*handles the sizing chart being clicked and opening */}
       <Modal visible={isModalVisibile} animationType="slide" transparent={true}>
         <View style={styles.sizingChartContainer}>

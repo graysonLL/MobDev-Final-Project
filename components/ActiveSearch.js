@@ -36,7 +36,7 @@ export default function ActiveSearch({ data, input }) {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={[ActiveSearchStyles.itemContainer]}
-            onPress={() => navigation.navigate("Product", item)}
+            onPress={() => navigation.navigate("Product", { item })}
           >
             <View>
               <Image source={item.image} style={ActiveSearchStyles.itemImage} />

@@ -11,6 +11,7 @@ const SearchData = () => {
       category: "jordan",
       key: "1",
       image: images.j1,
+      color: "temp",
     },
     {
       title: "jordan 2",
@@ -19,6 +20,7 @@ const SearchData = () => {
       category: "jordan",
       key: "2",
       image: images.j2,
+      color: "temp",
     },
     {
       title: "jordan 3",
@@ -27,6 +29,7 @@ const SearchData = () => {
       category: "jordan",
       key: "3",
       image: images.j3,
+      color: "temp",
     },
     {
       title: "jordan 4",
@@ -35,6 +38,7 @@ const SearchData = () => {
       category: "jordan",
       key: "4",
       image: images.j4,
+      color: "temp",
     },
     {
       title: "nike 1",
@@ -43,6 +47,7 @@ const SearchData = () => {
       category: "nike",
       key: "5",
       image: images.j5,
+      color: "temp",
     },
     {
       title: "nike 2",
@@ -51,6 +56,7 @@ const SearchData = () => {
       category: "nike",
       key: "6",
       image: images.j6,
+      color: "temp",
     },
     {
       title: "adidas 1",
@@ -59,6 +65,7 @@ const SearchData = () => {
       category: "adidas",
       key: "7",
       image: images.j1,
+      color: "temp",
     },
     {
       title: "adidas 2",
@@ -67,6 +74,7 @@ const SearchData = () => {
       category: "nike",
       key: "8",
       image: images.j1,
+      color: "temp",
     },
     {
       title: "nike 9",
@@ -75,6 +83,7 @@ const SearchData = () => {
       category: "nike",
       key: "9",
       image: images.j1,
+      color: "temp",
     },
   ]);
 

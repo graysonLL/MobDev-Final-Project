@@ -31,7 +31,7 @@ export default function FavoritesScreen({}) {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={[FavoritesStyles.itemContainer]}
-            onPress={() => navigation.navigate("Product", item)}
+            onPress={() => navigation.navigate("Product", { item })}
           >
             <Text style={FavoritesStyles.itemTitle}>{item.title}</Text>
             <Image source={item.image} style={FavoritesStyles.itemImage} />
