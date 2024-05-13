@@ -1,47 +1,61 @@
-import React from "react";
-import { useState } from "react";
-import images from "../images/imagesExport";
+import { useState, useEffect, useContext } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AuthContext } from "../context/AuthContext";
 
 const FavoriteList = () => {
-  const [shoes, setShoes] = useState([
-    {
-      title: "jordan 1",
-      price: "100$",
-      body: "bout jordan 1",
-      key: "1",
-      image: images.j1,
-    },
-    {
-      title: "jordan 2",
-      price: "200$",
-      body: "bout jordan 2",
-      key: "2",
-      image: images.j2,
-    },
-    {
-      title: "jordan 3",
-      price: "300$",
-      body: "bout jordan 3",
-      key: "3",
-      image: images.j3,
-    },
-    {
-      title: "jordan 4",
-      price: "100$",
-      body: "bout jordan 1",
-      key: "4",
-      image: images.j4,
-    },
-    {
-      title: "jordan 5",
-      price: "200$",
-      body: "bout jordan 2",
-      key: "5",
-      image: images.j5,
-    },
-  ]);
+  const [favoriteShoes, setFavoriteShoes] = useState([]);
+  const { userToken } = useContext(AuthContext);
 
-  return shoes;
+  const loadFavoriteShoes = async () => {
+    try {
+      if (userToken) {
+        const storedFavoriteShoes = await AsyncStorage.getItem(
+          `favoriteShoes_${userToken}`
+        );
+        if (storedFavoriteShoes) {
+          const favoriteShoesData = JSON.parse(storedFavoriteShoes);
+          setFavoriteShoes(favoriteShoesData); // Update state with loaded data
+          return favoriteShoesData; // Return the loaded data
+        }
+      }
+      return []; // Return an empty array if no data is found
+    } catch (error) {
+      console.error("Error loading favorite shoes data:", error);
+      throw error; // Throw the error to be caught by the caller
+    }
+  };
+
+  const saveFavoriteShoes = async (data) => {
+    try {
+      if (userToken) {
+        // Check if the key of the new shoe is unique
+        const isKeyUnique = data.every(
+          (shoe, index) =>
+            data.findIndex((otherShoe) => otherShoe.key === shoe.key) === index
+        );
+
+        if (isKeyUnique) {
+          // If the key is unique, save the updated list
+          await AsyncStorage.setItem(
+            `favoriteShoes_${userToken}`,
+            JSON.stringify(data)
+          );
+          setFavoriteShoes(data);
+        } else {
+          console.error(
+            "Error saving favorite shoes data: Duplicate keys found"
+          );
+        }
+      }
+    } catch (error) {
+      console.error("Error saving favorite shoes data:", error);
+    }
+  };
+  return {
+    favoriteShoes,
+    saveFavoriteShoes,
+    loadFavoriteShoes,
+  };
 };
 
 export default FavoriteList;

@@ -11,17 +11,22 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import FavoriteList from "../resources/FavoriteList";
 import FavoritesStyles from "../styles/FavoritesStyles";
+import { useEffect } from "react";
 
 export default function FavoritesScreen({}) {
   const navigation = useNavigation();
-  const shoes = FavoriteList();
-  const { width } = Dimensions.get("window");
-  const margin = 10;
+  const { favoriteShoes, loadFavoriteShoes } = FavoriteList();
 
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", () => {
+      loadFavoriteShoes();
+    });
+    return unsubscribe;
+  }, [navigation, loadFavoriteShoes]);
   return (
     <View>
       <FlatList
-        data={shoes}
+        data={favoriteShoes}
         numColumns={1}
         renderItem={({ item }) => (
           <TouchableOpacity

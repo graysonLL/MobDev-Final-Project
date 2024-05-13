@@ -30,7 +30,7 @@ const SearchFilter = ({ data, input, setInput, selectedCategory }) => {
       renderItem={({ item }) => (
         <TouchableOpacity
           style={SearchStyles.itemContainer}
-          onPress={() => navigation.navigate("Product", item)}
+          onPress={() => navigation.navigate("Product", { item })}
         >
           <Image source={item.image} style={SearchStyles.itemImage} />
           <Text style={SearchStyles.itemTitle}>{item.title}</Text>
