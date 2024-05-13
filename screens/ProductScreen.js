@@ -66,9 +66,9 @@ export default function ProductScreen({ route }) {
   const addToFavorites = async () => {
     try {
       const newShoe = item;
-      const storedFavoriteShoes = await loadFavoriteShoes(); // Load favorite shoes data
-      const updatedFavoriteShoes = [...storedFavoriteShoes, newShoe];
-      saveFavoriteShoes(updatedFavoriteShoes);
+      const storedFavoriteShoes = await loadFavoriteShoes();
+      // const updatedFavoriteShoes = [...storedFavoriteShoes, newShoe];
+      saveFavoriteShoes(storedFavoriteShoes, newShoe);
     } catch (error) {
       console.error("Error adding shoe to favorites:", error);
     }
