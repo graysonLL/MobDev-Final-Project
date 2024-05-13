@@ -13,7 +13,7 @@ export function HomeStack() {
       <Stack.Screen
         name="Product"
         component={ProductScreen}
-        options={({ route }) => ({ title: route.params.title })}
+        options={{title:"Details"}}
       />
       <Stack.Screen name="Checkout" component={CheckoutScreen} />
     </Stack.Navigator>

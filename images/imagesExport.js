@@ -11,6 +11,7 @@ import nike from "./nike.jpg";
 import jordan from "./jordan.jpg";
 import converse from "./converse.png";
 import OffWhite from "./OffWhite.jpg";
+import ShoeSizes from "./shoesSizes.png";
 
 import dot from "./dot.png";
 import home from "./home.png";
@@ -48,5 +49,7 @@ export default {
   buying,
   login,
   logout,
-  shipping
+  shipping,
+  ShoeSizes,
+
 };
