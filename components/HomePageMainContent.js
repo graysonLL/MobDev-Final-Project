@@ -3,6 +3,7 @@ import { ScrollView, View, Text, Image, TouchableOpacity} from "react-native";
 import HomeStyles from "../styles/HomeStyles"
 
 const MainContent = ({navigation, products, brands}) => {
+  
     return (
         <View>
         <View style={HomeStyles.section}>
