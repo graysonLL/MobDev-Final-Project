@@ -14,43 +14,45 @@ const FavoriteList = () => {
         );
         if (storedFavoriteShoes) {
           const favoriteShoesData = JSON.parse(storedFavoriteShoes);
-          setFavoriteShoes(favoriteShoesData); // Update state with loaded data
-          return favoriteShoesData; // Return the loaded data
+          setFavoriteShoes(favoriteShoesData);
+          return favoriteShoesData;
         }
       }
-      return []; // Return an empty array if no data is found
+      return [];
     } catch (error) {
       console.error("Error loading favorite shoes data:", error);
-      throw error; // Throw the error to be caught by the caller
+      throw error;
     }
   };
 
-  const saveFavoriteShoes = async (data) => {
+  const saveFavoriteShoes = async (data, newShoe) => {
     try {
       if (userToken) {
-        // Check if the key of the new shoe is unique
-        const isKeyUnique = data.every(
-          (shoe, index) =>
-            data.findIndex((otherShoe) => otherShoe.key === shoe.key) === index
+        let updatedShoes = [...data];
+        const existingIndex = updatedShoes.findIndex(
+          (shoe) => shoe.key === newShoe.key
         );
 
-        if (isKeyUnique) {
-          // If the key is unique, save the updated list
-          await AsyncStorage.setItem(
-            `favoriteShoes_${userToken}`,
-            JSON.stringify(data)
+        if (existingIndex !== -1) {
+          updatedShoes = updatedShoes.filter(
+            (shoe, index) => index !== existingIndex
           );
-          setFavoriteShoes(data);
         } else {
-          console.error(
-            "Error saving favorite shoes data: Duplicate keys found"
-          );
+          updatedShoes.push(newShoe);
         }
+
+        await AsyncStorage.setItem(
+          `favoriteShoes_${userToken}`,
+          JSON.stringify(updatedShoes)
+        );
+
+        setFavoriteShoes(updatedShoes);
       }
     } catch (error) {
       console.error("Error saving favorite shoes data:", error);
     }
   };
+
   return {
     favoriteShoes,
     saveFavoriteShoes,
