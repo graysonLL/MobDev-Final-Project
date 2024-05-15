@@ -236,7 +236,7 @@ export default function SearchScreen({ route }) {
                   onPress={() => filterByCategory("vans")}
                   style={[
                     SearchStyles.categoryText,
-                    selectedCategory === "vans" &&
+                    selectedCategory === "off-white" &&
                       SearchStyles.categoryTextSelected,
                   ]}
                 >
@@ -247,26 +247,7 @@ export default function SearchScreen({ route }) {
                         : { color: "grey" },
                     ]}
                   >
-                    Vans
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  activeOpacity={1}
-                  onPress={() => filterByCategory("puma")}
-                  style={[
-                    SearchStyles.categoryText,
-                    selectedCategory === "puma" &&
-                      SearchStyles.categoryTextSelected,
-                  ]}
-                >
-                  <Text
-                    style={[
-                      selectedCategory === "puma"
-                        ? { color: "black" }
-                        : { color: "grey" },
-                    ]}
-                  >
-                    Puma
+                    Off-White
                   </Text>
                 </TouchableOpacity>
               </View>
