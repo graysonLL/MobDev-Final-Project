@@ -6,6 +6,7 @@ import BuyingScreen from "../screens/BuyingScreen";
 import LoginScreen from "../screens/LoginScreen";
 import EditProfileScreen from "../screens/EditProfileScreen";
 import EditShippingScreen from "../screens/EditShippingScreen";
+import WalletScreen from "../screens/WalletScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,7 @@ export function SettingsStack() {
       <Stack.Screen name="Edit Profile" component={EditProfileScreen} />
       <Stack.Screen name="Edit Shipping Details" component={EditShippingScreen} />
       <Stack.Screen name="Buying" component={BuyingScreen} />
+      <Stack.Screen name="Wallet" component={WalletScreen} />
     </Stack.Navigator>
   );
 }

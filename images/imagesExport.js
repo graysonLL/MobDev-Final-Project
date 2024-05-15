@@ -24,6 +24,7 @@ import buying from "./buying.png";
 import login from "./login.png";
 import logout from "./logout.png";
 import shipping from "./shipping.png";
+import wallet from "./wallet.png";
 
 export default {
   j1,
@@ -51,5 +52,6 @@ export default {
   logout,
   shipping,
   ShoeSizes,
+  wallet,
 
 };
