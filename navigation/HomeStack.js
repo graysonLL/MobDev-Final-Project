@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import ProductScreen from "../screens/ProductScreen";
 import CheckoutScreen from "../screens/CheckoutScreen";
-
+import CartScreen from "../screens/CartScreen";
 const Stack = createNativeStackNavigator();
 
 export function HomeStack() {
@@ -15,7 +15,7 @@ export function HomeStack() {
         component={ProductScreen}
         options={{title:"Details"}}
       />
-      <Stack.Screen name="Checkout" component={CheckoutScreen} />
+      <Stack.Screen name="Cart" component={CartScreen} options={{title:"My Cart"}}/>
     </Stack.Navigator>
   );
 }

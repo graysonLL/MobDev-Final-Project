@@ -5,6 +5,7 @@ import images from "../images/imagesExport";
 const ShoesData = () => {
   const [shoes, setShoes] = useState([
     {
+      category: 'jordan',
       title: "Jordan 1 Retro Chicago",
       color: "White/Red/Black",
       date: "02/01/2024",
@@ -16,6 +17,7 @@ const ShoesData = () => {
       notifBody: "Cop now!"
     },
     {
+      category: 'jordan',
       title: "Air Jordan 1 Low",
       color: "White/Beige",
       date: "02/01/2024",
@@ -27,6 +29,7 @@ const ShoesData = () => {
       notifBody: "Place an order now!"
     },
     {
+      category: 'jordan',
       title: "Jordan 3",
       color: "temp",
       date: "02/01/2024",
@@ -38,6 +41,7 @@ const ShoesData = () => {
       notifBody: "Dunk na!"
     },
     {
+      category: 'jordan',
       title: "Jordan 4",
       color: "temp",
       date: "02/01/2024",
@@ -49,6 +53,7 @@ const ShoesData = () => {
       notifBody: "Cop now!"
     },
     {
+      category: 'jordan',
       title: "Air Jordan 1 Mid",
       color: "White/Black",
       date: "02/01/2024",
@@ -60,6 +65,7 @@ const ShoesData = () => {
       notifBody: "Cop now!"
     },
     {
+      category: 'jordan',
       title: "Jordan 6",
       color: "temp",
       date: "02/01/2024",
@@ -71,6 +77,7 @@ const ShoesData = () => {
       notifBody: "Cop now!"
     },
     {
+      category: 'jordan',
       title: "Jordan 7",
       color: "temp",
       date: "02/01/2024",
@@ -82,6 +89,7 @@ const ShoesData = () => {
       notifBody: "Cop now!"
     },
     {
+      category: 'nike',
       title: "Jordan 8",
       color: "temp",
       date: "02/01/2024",
@@ -93,6 +101,7 @@ const ShoesData = () => {
       notifBody: "Cop now!"
     },
     {
+      category: 'adidas',
       title: "Jordan 9",
       color: "temp",
       date: "02/01/2024",

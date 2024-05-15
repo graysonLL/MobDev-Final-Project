@@ -18,7 +18,7 @@ const HomeStyles = StyleSheet.create({
   },
   headerText : {
     margin: 15,
-    fontSize: 20,
+    fontSize: 22,
   },
   recommendedImages: {
     height: 150,
@@ -30,7 +30,12 @@ const HomeStyles = StyleSheet.create({
 
   },
   shoeTitle: {
+    fontSize: 17,
     flex: 1,
+    marginTop: 10,
+  },
+  shoePrice:{
+    fontSize: 15,
     marginTop: 10,
   },
   section : {

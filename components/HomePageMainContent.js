@@ -19,7 +19,8 @@ const MainContent = ({ navigation, products, brands }) => {
                   source={products[1].image}
                   style={HomeStyles.recommendedImages}
                 />
-                <Text style={HomeStyles.shoeTitle}>Jordan 2</Text>
+                <Text style={HomeStyles.shoeTitle}>{products[1].title}</Text>
+                <Text style={HomeStyles.shoePrice}>{products[1].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -33,7 +34,8 @@ const MainContent = ({ navigation, products, brands }) => {
                   source={products[3].image}
                   style={HomeStyles.recommendedImages}
                 />
-                <Text style={HomeStyles.shoeTitle}>Jordan 3</Text>
+                <Text style={HomeStyles.shoeTitle}>{products[3].title}</Text>
+                <Text style={HomeStyles.shoePrice}>{products[3].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -47,7 +49,8 @@ const MainContent = ({ navigation, products, brands }) => {
                   source={products[5].image}
                   style={HomeStyles.recommendedImages}
                 />
-                <Text style={HomeStyles.shoeTitle}>Jordan 5</Text>
+                <Text style={HomeStyles.shoeTitle}>{products[5].title}</Text>
+                <Text style={HomeStyles.shoePrice}>{products[5].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -61,7 +64,8 @@ const MainContent = ({ navigation, products, brands }) => {
                   source={products[2].image}
                   style={HomeStyles.recommendedImages}
                 />
-                <Text style={HomeStyles.shoeTitle}>Jordan 2</Text>
+                <Text style={HomeStyles.shoeTitle}>{products[2].title}</Text>
+                <Text style={HomeStyles.shoePrice}>{products[2].price}</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -82,7 +86,8 @@ const MainContent = ({ navigation, products, brands }) => {
                   source={products[4].image}
                   style={HomeStyles.recommendedImages}
                 />
-                <Text style={HomeStyles.shoeTitle}>Jordan 4</Text>
+                <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
+                <Text style={HomeStyles.shoePrice}>{products[4].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -96,7 +101,8 @@ const MainContent = ({ navigation, products, brands }) => {
                   source={products[4].image}
                   style={HomeStyles.recommendedImages}
                 />
-                <Text style={HomeStyles.shoeTitle}>Jordan 4</Text>
+                <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
+                <Text style={HomeStyles.shoePrice}>{products[4].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -110,7 +116,8 @@ const MainContent = ({ navigation, products, brands }) => {
                   source={products[4].image}
                   style={HomeStyles.recommendedImages}
                 />
-                <Text style={HomeStyles.shoeTitle}>Jordan 4</Text>
+                <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
+                <Text style={HomeStyles.shoePrice}>{products[4].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -124,7 +131,8 @@ const MainContent = ({ navigation, products, brands }) => {
                   source={products[4].image}
                   style={HomeStyles.recommendedImages}
                 />
-                <Text style={HomeStyles.shoeTitle}>Jordan 4</Text>
+                <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
+                <Text style={HomeStyles.shoePrice}>{products[4].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -138,7 +146,8 @@ const MainContent = ({ navigation, products, brands }) => {
                   source={products[4].image}
                   style={HomeStyles.recommendedImages}
                 />
-                <Text style={HomeStyles.shoeTitle}>Jordan 4</Text>
+                <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
+                <Text style={HomeStyles.shoePrice}>{products[4].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -152,7 +161,8 @@ const MainContent = ({ navigation, products, brands }) => {
                   source={products[4].image}
                   style={HomeStyles.recommendedImages}
                 />
-                <Text style={HomeStyles.shoeTitle}>Jordan 4</Text>
+                <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
+                <Text style={HomeStyles.shoePrice}>{products[4].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -166,7 +176,8 @@ const MainContent = ({ navigation, products, brands }) => {
                   source={products[4].image}
                   style={HomeStyles.recommendedImages}
                 />
-                <Text style={HomeStyles.shoeTitle}>Jordan 4</Text>
+                <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
+                <Text style={HomeStyles.shoePrice}>{products[4].price}</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -177,26 +188,42 @@ const MainContent = ({ navigation, products, brands }) => {
         <Text style={HomeStyles.headerText}>Popular Brands</Text>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           <View style={{ marginLeft: 20, flexDirection: "row" }}>
-            <View style={HomeStyles.brandContainer}>
+
+            <TouchableOpacity style={HomeStyles.brandContainer}>
+            <View>
               <Image source={brands[0].image} style={HomeStyles.brandImages} />
-              <Text style={HomeStyles.shoeTitle}>Adidas</Text>
+              <Text style={HomeStyles.shoePrice}>Adidas</Text>
             </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={HomeStyles.brandContainer}>
             <View style={HomeStyles.brandContainer}>
               <Image source={brands[1].image} style={HomeStyles.brandImages} />
-              <Text style={HomeStyles.shoeTitle}>Nike</Text>
+              <Text style={HomeStyles.shoePrice}>Nike</Text>
             </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={HomeStyles.brandContainer}>
             <View style={HomeStyles.brandContainer}>
               <Image source={brands[2].image} style={HomeStyles.brandImages} />
-              <Text style={HomeStyles.shoeTitle}>Converse</Text>
+              <Text style={HomeStyles.shoePrice}>Converse</Text>
             </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={HomeStyles.brandContainer}>
             <View style={HomeStyles.brandContainer}>
               <Image source={brands[3].image} style={HomeStyles.brandImages} />
-              <Text style={HomeStyles.shoeTitle}>Air Jordan</Text>
+              <Text style={HomeStyles.shoePrice}>Air Jordan</Text>
             </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={HomeStyles.brandContainer}>
             <View style={HomeStyles.brandContainer}>
               <Image source={brands[4].image} style={HomeStyles.brandImages} />
-              <Text style={HomeStyles.shoeTitle}>Off-White</Text>
+              <Text style={HomeStyles.shoePrice}>Off-White</Text>
             </View>
+            </TouchableOpacity>
+
           </View>
         </ScrollView>
       </View>

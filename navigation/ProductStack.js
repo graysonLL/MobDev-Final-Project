@@ -10,6 +10,7 @@ export function ProductStack() {
     <Stack.Navigator>
       <Stack.Screen name="Product" component={ProductScreen} />
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="Cart" component={CartScreen} options={{title:"My Cart"}}/>
     </Stack.Navigator>
   );
 }

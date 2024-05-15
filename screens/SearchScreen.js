@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { useState } from "react";
 import SearchStyles from "../styles/SearchStyles";
-import SearchData from "../resources/SearchData";
+import SearchData from "../resources/ShoesData";
 import SearchFilter from "../components/SearchFilter";
 import { KeyboardAvoidingView } from "react-native";
 import ActiveSearch from "../components/ActiveSearch";

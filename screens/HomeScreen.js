@@ -15,6 +15,7 @@ import BrandData from "../resources/BrandData";
 import HomeStyles from "../styles/HomeStyles";
 import MainContent from "../components/HomePageMainContent"
 import AdImage from "../images/Ad1.jpg"
+import ShoppingCart from "../components/shoppingCart"
 import { useNavigation } from "@react-navigation/native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
@@ -47,8 +48,8 @@ export default function HomeScreen({}) {
   }, [currentIndex, pan, width]);
 
   return (
+    <View style={{flex:1}}>
     <ScrollView style={HomeStyles.container}>
-
       <Animated.View style={[HomeStyles.imageTop, { transform: [{ translateX: pan }] }]}>
         {shoes.map((shoe, index) => (  
             <Image key={index} source={shoe.image} style={{ width, height: 245 }}/>  
@@ -59,9 +60,11 @@ export default function HomeScreen({}) {
       <View style={HomeStyles.adSection}>
         <Image source={AdImage} style={HomeStyles.adImage}/>
         <Text style={HomeStyles.adText}>Shop Now!</Text>
-
       </View>
-
     </ScrollView>
+
+    <ShoppingCart/>
+    </View>
+
   );
 }
