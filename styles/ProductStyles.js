@@ -24,6 +24,9 @@ const ProductScreenStyles = StyleSheet.create({
     padding: 10,
   },
   picContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     height: 270,
   },
   itemImage: {

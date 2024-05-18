@@ -33,7 +33,7 @@ const HomeStyles = StyleSheet.create({
     marginTop: 10,
   },
   shoePrice:{
-    fontSize: 15,
+    fontSize: 20,
     marginTop: 10,
   },
   section : {

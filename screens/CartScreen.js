@@ -63,7 +63,7 @@ export default function CartScreen() {
               </View>
               <View style={CartStyles.wordsContainer}>
                 <Text style={CartStyles.textFormatting}>$ {calculateSubtotal().toFixed(2)}</Text>
-                <Text style={CartStyles.textFormatting}>$ 10</Text>
+                <Text style={CartStyles.textFormatting}>$ 10.00</Text>
                 <Text style={CartStyles.textFormatting}>$ {calculateTotal()}</Text>
               </View>
             </View>

@@ -109,8 +109,8 @@ export default function ProductScreen({ route }) {
               marginBottom: 15,
             }}
           >
-            <Text style={{ fontSize: 25, flex: 1 }}>{title}</Text>
-            <Text style={{ fontSize: 25, marginLeft: 'auto' }}>$ {price}</Text>
+            <Text style={{ fontSize: 25, flex: 1, marginRight: 20}}>{title}</Text>
+            <Text style={{ fontSize: 25, marginLeft: 'auto'}}>$ {price}</Text>
           </View>
 
         <TouchableOpacity onPress={addToFavorites}>
@@ -123,6 +123,7 @@ export default function ProductScreen({ route }) {
             style={styles.infoContainer}
           >
             <Text style={{ fontSize: 18 }}>Product Details</Text>
+            <Text style={styles.infoText}>Brand: {category} </Text>
             <Text style={styles.infoText}>Colourway: {color}</Text>
             <Text style={styles.infoText}>Price: ${price}</Text>
             <Text style={styles.infoText}>Release Date: {date}</Text>
@@ -191,7 +192,7 @@ export default function ProductScreen({ route }) {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[1].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[1].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[1].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -206,7 +207,7 @@ export default function ProductScreen({ route }) {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[3].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[3].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[3].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -221,7 +222,7 @@ export default function ProductScreen({ route }) {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[5].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[5].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[5].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -236,7 +237,7 @@ export default function ProductScreen({ route }) {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[2].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[2].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[2].price}</Text>
               </View>
             </TouchableOpacity>
               </View>

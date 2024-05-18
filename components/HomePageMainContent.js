@@ -81,16 +81,61 @@ const MainContent = ({ navigation, products, brands }) => {
           <View style={{ marginLeft: 20, flexDirection: "row" }}>
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("Product", { item: products[4] })
+                navigation.navigate("Product", { item: products[6] })
               }
             >
               <View style={HomeStyles.productContainer}>
                 <Image
-                  source={products[4].image}
+                  source={products[6].image}
                   style={HomeStyles.recommendedImages}
                 />
-                <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
-                <Text style={HomeStyles.shoePrice}>$ {products[4].price}</Text>
+                <Text style={HomeStyles.shoeTitle}>{products[6].title}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[6].price}</Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("Product", { item: products[7] })
+              }
+            >
+              <View style={HomeStyles.productContainer}>
+                <Image
+                  source={products[7].image}
+                  style={HomeStyles.recommendedImages}
+                />
+                <Text style={HomeStyles.shoeTitle}>{products[7].title}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[7].price}</Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("Product", { item: products[8] })
+              }
+            >
+              <View style={HomeStyles.productContainer}>
+                <Image
+                  source={products[8].image}
+                  style={HomeStyles.recommendedImages}
+                />
+                <Text style={HomeStyles.shoeTitle}>{products[8].title}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[8].price}</Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("Product", { item: products[9] })
+              }
+            >
+              <View style={HomeStyles.productContainer}>
+                <Image
+                  source={products[9].image}
+                  style={HomeStyles.recommendedImages}
+                />
+                <Text style={HomeStyles.shoeTitle}>{products[9].title}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[9].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -111,78 +156,19 @@ const MainContent = ({ navigation, products, brands }) => {
 
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("Product", { item: products[4] })
+                navigation.navigate("Product", { item: products[0] })
               }
             >
               <View style={HomeStyles.productContainer}>
                 <Image
-                  source={products[4].image}
+                  source={products[0].image}
                   style={HomeStyles.recommendedImages}
                 />
-                <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
-                <Text style={HomeStyles.shoePrice}>$ {products[4].price}</Text>
+                <Text style={HomeStyles.shoeTitle}>{products[0].title}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[0].price}</Text>
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity
-              onPress={() =>
-                navigation.navigate("Product", { item: products[4] })
-              }
-            >
-              <View style={HomeStyles.productContainer}>
-                <Image
-                  source={products[4].image}
-                  style={HomeStyles.recommendedImages}
-                />
-                <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
-                <Text style={HomeStyles.shoePrice}>$ {products[4].price}</Text>
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() =>
-                navigation.navigate("Product", { item: products[4] })
-              }
-            >
-              <View style={HomeStyles.productContainer}>
-                <Image
-                  source={products[4].image}
-                  style={HomeStyles.recommendedImages}
-                />
-                <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
-                <Text style={HomeStyles.shoePrice}>$ {products[4].price}</Text>
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() =>
-                navigation.navigate("Product", { item: products[4] })
-              }
-            >
-              <View style={HomeStyles.productContainer}>
-                <Image
-                  source={products[4].image}
-                  style={HomeStyles.recommendedImages}
-                />
-                <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
-                <Text style={HomeStyles.shoePrice}>$ {products[4].price}</Text>
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() =>
-                navigation.navigate("Product", { item: products[4] })
-              }
-            >
-              <View style={HomeStyles.productContainer}>
-                <Image
-                  source={products[4].image}
-                  style={HomeStyles.recommendedImages}
-                />
-                <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
-                <Text style={HomeStyles.shoePrice}>$ {products[4].price}</Text>
-              </View>
-            </TouchableOpacity>
           </View>
         </ScrollView>
       </View>
@@ -196,7 +182,7 @@ const MainContent = ({ navigation, products, brands }) => {
              onPress={()=>navigation.navigate("Search Result", {data:shoes, input:'adidas'})}>
             <View>
               <Image source={brands[0].image} style={HomeStyles.brandImages}/>
-              <Text style={HomeStyles.shoePrice}>Adidas</Text>
+              <Text style={{fontSize: 15}}>Adidas</Text>
             </View>
             </TouchableOpacity>
 
@@ -204,7 +190,7 @@ const MainContent = ({ navigation, products, brands }) => {
              onPress={()=>navigation.navigate("Search Result", {data:shoes, input:'nike'})}>
             <View style={HomeStyles.brandContainer}>
               <Image source={brands[1].image} style={HomeStyles.brandImages} />
-              <Text style={HomeStyles.shoePrice}>Nike</Text>
+              <Text style={{fontSize: 15}}>Nike</Text>
             </View>
             </TouchableOpacity>
 
@@ -212,7 +198,7 @@ const MainContent = ({ navigation, products, brands }) => {
              onPress={()=>navigation.navigate("Search Result", {data:shoes, input:'converse'})}>
             <View style={HomeStyles.brandContainer}>
               <Image source={brands[2].image} style={HomeStyles.brandImages} />
-              <Text style={HomeStyles.shoePrice}>Converse</Text>
+              <Text style={{fontSize: 15}}>Converse</Text>
             </View>
             </TouchableOpacity>
 
@@ -220,7 +206,7 @@ const MainContent = ({ navigation, products, brands }) => {
              onPress={()=>navigation.navigate("Search Result", {data:shoes, input:'jordan'})}>
             <View style={HomeStyles.brandContainer}>
               <Image source={brands[3].image} style={HomeStyles.brandImages} />
-              <Text style={HomeStyles.shoePrice}>Air Jordan</Text>
+              <Text style={{fontSize: 15}}>Air Jordan</Text>
             </View>
             </TouchableOpacity>
 
@@ -228,7 +214,7 @@ const MainContent = ({ navigation, products, brands }) => {
              onPress={()=>navigation.navigate("Search Result", {data:shoes, input:'off-white'})}>
             <View style={HomeStyles.brandContainer}>
               <Image source={brands[4].image} style={HomeStyles.brandImages} />
-              <Text style={HomeStyles.shoePrice}>Off-White</Text>
+              <Text style={{fontSize: 15}}>Off-White</Text>
             </View>
             </TouchableOpacity>
 

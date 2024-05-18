@@ -233,7 +233,7 @@ export default function SearchScreen({ route }) {
                 </TouchableOpacity>
                 <TouchableOpacity
                   activeOpacity={1}
-                  onPress={() => filterByCategory("vans")}
+                  onPress={() => filterByCategory("off-white")}
                   style={[
                     SearchStyles.categoryText,
                     selectedCategory === "off-white" &&
@@ -242,7 +242,7 @@ export default function SearchScreen({ route }) {
                 >
                   <Text
                     style={[
-                      selectedCategory === "vans"
+                      selectedCategory === "off-white"
                         ? { color: "black" }
                         : { color: "grey" },
                     ]}
