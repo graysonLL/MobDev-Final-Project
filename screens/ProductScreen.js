@@ -17,7 +17,9 @@ import sizingChart from "../images/shoesSizes.png";
 import shoppingCart from "../images/shoppingCart.png"
 import { useNavigation } from "@react-navigation/native";
 import { Picker } from "@react-native-picker/picker";
+import Popup from "../components/Popup";
 import FavoriteList from "../resources/FavoriteList";
+import CartList from "../resources/CartList";
 import ShoppingCart from "../components/shoppingCart"
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
@@ -25,7 +27,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function ProductScreen({ route }) {
   const { item } = route.params;
-  const { title, price, body, image, category, color } = item;
+  const { title, price, body, image, category, color, date } = item;
   const navigation = useNavigation();
   const [selectedSize, setSelectedSize] = useState();
   const sizes = [
@@ -44,21 +46,16 @@ export default function ProductScreen({ route }) {
   const [isModalVisibile, setIsModalVisible] = useState(false);
   const products = ShoesData();
 
-  {
-    /* in charge of hiding the bottom navbar when page is being navigated to */
-  }
-  useEffect(() => {
-    navigation.getParent()?.setOptions({
-      tabBarStyle: {
-        display: "none",
-      },
-    });
-    return () =>
-      navigation.getParent()?.setOptions({
-        tabBarStyle: undefined,
-      });
-  }, [navigation]);
+  /* Popup Notif*/
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
+  const handleClosePopup = () =>{
+    setPopupVisible(false); 
+  }
+
+
+   /* Saving Products to Favorites */
   const { saveFavoriteShoes, loadFavoriteShoes } = FavoriteList();
 
   const addToFavorites = async () => {
@@ -71,6 +68,32 @@ export default function ProductScreen({ route }) {
       console.error("Error adding shoe to favorites:", error);
     }
   };
+
+
+   /* Adding Items to Cart*/
+
+   const { saveCartItems, loadCartItems } = CartList();
+
+  const addToCart = async () => {
+    try {
+      const newItem = item;
+      const storedCartItems = await loadCartItems();
+      const existingItem = storedCartItems.find(cartItem => cartItem.key === newItem.key);
+      
+      if (existingItem) {
+        setPopupMessage("Item is already in the cart!");
+      } else {
+        await saveCartItems(storedCartItems, newItem);
+        setPopupMessage("Item added to cart!");
+      }
+      
+      setPopupVisible(true);
+    } catch (error) {
+      console.error("Error adding item to cart:", error);
+    }
+  };
+
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -87,7 +110,7 @@ export default function ProductScreen({ route }) {
             }}
           >
             <Text style={{ fontSize: 25, flex: 1 }}>{title}</Text>
-            <Text style={{ fontSize: 25, marginLeft: 'auto' }}>{price}</Text>
+            <Text style={{ fontSize: 25, marginLeft: 'auto' }}>$ {price}</Text>
           </View>
 
         <TouchableOpacity onPress={addToFavorites}>
@@ -101,8 +124,8 @@ export default function ProductScreen({ route }) {
           >
             <Text style={{ fontSize: 18 }}>Product Details</Text>
             <Text style={styles.infoText}>Colourway: {color}</Text>
-            <Text style={styles.infoText}>Price: {price}</Text>
-            <Text style={styles.infoText}>Release Date: </Text>
+            <Text style={styles.infoText}>Price: ${price}</Text>
+            <Text style={styles.infoText}>Release Date: {date}</Text>
             <Text style={styles.infoText}>{body}</Text>
           </View>
 
@@ -159,7 +182,7 @@ export default function ProductScreen({ route }) {
               <View style={{ flexDirection: "row" }}>
               <TouchableOpacity
               onPress={() =>
-                navigation.navigate("Product", { item: products[1] })
+                navigation.push("Product", { item: products[1] })
               }
             >
               <View style={HomeStyles.productContainer}>
@@ -174,7 +197,7 @@ export default function ProductScreen({ route }) {
 
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("Product", { item: products[3] })
+                navigation.push("Product", { item: products[3] })
               }
             >
               <View style={HomeStyles.productContainer}>
@@ -189,7 +212,7 @@ export default function ProductScreen({ route }) {
 
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("Product", { item: products[5] })
+                navigation.push("Product", { item: products[5] })
               }
             >
               <View style={HomeStyles.productContainer}>
@@ -204,7 +227,7 @@ export default function ProductScreen({ route }) {
 
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("Product", { item: products[2] })
+                navigation.push("Product", { item: products[2] })
               }
             >
               <View style={HomeStyles.productContainer}>
@@ -223,16 +246,17 @@ export default function ProductScreen({ route }) {
         </View>
       </ScrollView>
 
-      {/* Shopping Cart Icon */}            
-      <ShoppingCart />
-      {/* Shopping Cart Icon */}  
+      {/* Shopping Cart Component */}            
+      <ShoppingCart size ={selectedSize} />
+      {/* Shopping Cart Component */}  
 
       {/* Buttons section */}
       <View style={styles.buttonsContainer}>
         <TouchableOpacity style={styles.buyButton}>
           <Text style={styles.buyButtonText}>Buy Now</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buyButton}>
+        <TouchableOpacity style={styles.buyButton}
+         onPress={addToCart}>
           <Text style={styles.buyButtonText}>Add To Cart</Text>
         </TouchableOpacity>
       </View>
@@ -252,6 +276,13 @@ export default function ProductScreen({ route }) {
           <Image source={sizingChart} style={styles.sizingChart} />
         </View>
       </Modal>
+      
+      <Popup
+       visible={popupVisible}
+       message={popupMessage}
+       onClose={handleClosePopup}
+      />
+
     </View>
   );
 }

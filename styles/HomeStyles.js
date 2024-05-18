@@ -23,9 +23,7 @@ const HomeStyles = StyleSheet.create({
   recommendedImages: {
     height: 150,
     width: 150,
-    flex: 2,
-    borderWidth: 0.4,
-    borderColor: '#dddddd',
+    flex: 2,  
     resizeMode: 'cover',
 
   },
@@ -39,13 +37,17 @@ const HomeStyles = StyleSheet.create({
     marginTop: 10,
   },
   section : {
-    marginBottom: 20,
+    marginBottom: 10,
   },
   productContainer: {
-    width: 150,
+    width: 180,
+    height: 230,
+    borderRadius: 20,
+    backgroundColor: 'white',
+    padding: 10,
     marginRight: 20,
-    borderWidth: 0.4,
-    borderColor: '#dddddd',
+    elevation: 5,
+    marginBottom: 10, 
   },
   brandImages: {
     height: 120,

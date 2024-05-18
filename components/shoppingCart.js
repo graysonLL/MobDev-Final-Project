@@ -4,14 +4,18 @@ import shoppingCartImage from "../images/shoppingCart.png"
 import { useNavigation } from "@react-navigation/native";
 const {height} = Dimensions.get('window')
 
-const shoppingCart = () => {
+const shoppingCart = ({size}) => {
   
   const navigation = useNavigation();
   
+  const handlePress = () =>{
+    navigation.navigate("Cart", {size});
+  }
+
   return (
     <View>
         <TouchableOpacity style={styles.circularContainer} 
-          onPress={()=> navigation.navigate("Cart")}>
+          onPress={handlePress}>
           <Image source={shoppingCartImage} style={styles.shoppingCartImage}/>
       </TouchableOpacity>
     </View>

@@ -23,7 +23,7 @@ const MainContent = ({ navigation, products, brands }) => {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[1].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[1].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[1].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -38,7 +38,7 @@ const MainContent = ({ navigation, products, brands }) => {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[3].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[3].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[3].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -53,7 +53,7 @@ const MainContent = ({ navigation, products, brands }) => {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[5].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[5].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[5].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -68,7 +68,7 @@ const MainContent = ({ navigation, products, brands }) => {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[2].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[2].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[2].price}</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -90,7 +90,7 @@ const MainContent = ({ navigation, products, brands }) => {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[4].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[4].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -105,7 +105,7 @@ const MainContent = ({ navigation, products, brands }) => {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[4].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[4].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -120,7 +120,7 @@ const MainContent = ({ navigation, products, brands }) => {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[4].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[4].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -135,7 +135,7 @@ const MainContent = ({ navigation, products, brands }) => {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[4].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[4].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -150,7 +150,7 @@ const MainContent = ({ navigation, products, brands }) => {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[4].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[4].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -165,7 +165,7 @@ const MainContent = ({ navigation, products, brands }) => {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[4].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[4].price}</Text>
               </View>
             </TouchableOpacity>
 
@@ -180,7 +180,7 @@ const MainContent = ({ navigation, products, brands }) => {
                   style={HomeStyles.recommendedImages}
                 />
                 <Text style={HomeStyles.shoeTitle}>{products[4].title}</Text>
-                <Text style={HomeStyles.shoePrice}>{products[4].price}</Text>
+                <Text style={HomeStyles.shoePrice}>$ {products[4].price}</Text>
               </View>
             </TouchableOpacity>
           </View>

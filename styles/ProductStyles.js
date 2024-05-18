@@ -84,8 +84,8 @@ const ProductScreenStyles = StyleSheet.create({
     paddingLeft: 20,
   },
   buttonsContainer:{
-    borderTopWidth: 1,
-    borderColor: 'gray',
+    backgroundColor: 'white',
+    elevation: 5,
     //borderWidth: 1,   //commentable
     flexDirection: 'row',
     padding: 10,
