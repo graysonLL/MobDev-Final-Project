@@ -43,7 +43,7 @@ export default function ActiveSearch({ data, input }) {
             </View>
             <View>
               <Text style={ActiveSearchStyles.itemTitle}>{item.title}</Text>
-              <Text style={ActiveSearchStyles.itemBody}>{item.body}</Text>
+              <Text style>{item.price}</Text>
             </View>
           </TouchableOpacity>
         )}

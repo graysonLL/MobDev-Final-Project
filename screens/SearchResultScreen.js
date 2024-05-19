@@ -104,7 +104,6 @@ export default function SearchResultScreen({ route }) {
                   </View>
                   <View>
                     <Text style={SearchStyles.itemTitle}>{item.title}</Text>
-                    <Text style={SearchStyles.itemBody}>{item.body}</Text>
                   </View>
                 </TouchableOpacity>
               )}
