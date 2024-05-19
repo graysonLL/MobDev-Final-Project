@@ -49,6 +49,8 @@ import logout from "./logout.png";
 import shipping from "./shipping.png";
 import wallet from "./wallet.png";
 
+import Logo from "./Sneaky Link.png";
+
 export default {
   j1,
   j2,
@@ -93,5 +95,6 @@ export default {
   o2,
   o3,
   o4,
+  Logo
 
 };

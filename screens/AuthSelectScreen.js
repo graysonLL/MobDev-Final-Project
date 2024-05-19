@@ -3,13 +3,14 @@ import { Text, StyleSheet, View, Button, Image } from "react-native";
 import AuthSelectStyles from "../styles/AuthSelectStyles";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useState } from "react";
-import drake from "../images/drake.png";
+import images from "../images/imagesExport";
+import LottieView from "lottie-react-native";
 
 export default function AuthSelectScreen({ route }) {
   const navigation = useNavigation();
   return (
     <View style={AuthSelectStyles.container}>
-      <Image source={drake} style={AuthSelectStyles.drakeImage} />
+      <Image source={images.Logo} style={AuthSelectStyles.drakeImage} />
       <TouchableOpacity
         style={AuthSelectStyles.signupButton}
         onPress={() => {

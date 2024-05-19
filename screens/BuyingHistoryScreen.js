@@ -33,7 +33,7 @@ const BuyingHistoryScreen = () => {
       <Text>Items:</Text>
       {item.items.map((orderItem, index) => (
         <View key={index} style={styles.itemContainer}>
-          <Text>Name: {orderItem.name}</Text>
+          <Text>Name: {orderItem.title}</Text>
           <Text>Price: ${orderItem.price}</Text>
         </View>
       ))}
