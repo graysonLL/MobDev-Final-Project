@@ -73,9 +73,16 @@ export default function ProductScreen({ route }) {
    /* Adding Items to Cart*/
 
    const { saveCartItems, loadCartItems } = CartList();
+   const {userToken} = useContext(AuthContext);
 
   const addToCart = async () => {
     try {
+
+      if(!userToken){
+        setPopupMessage("Sign in to add to cart!");
+        setPopupVisible(true);
+        return;
+      }
       const newItem = item;
       const storedCartItems = await loadCartItems();
       const existingItem = storedCartItems.find(cartItem => cartItem.key === newItem.key);
@@ -95,6 +102,11 @@ export default function ProductScreen({ route }) {
 
 
     const handleCheckout = () => {
+      if(!userToken){
+        setPopupMessage("Sign in to purchase a product!");
+        setPopupVisible(true);
+        return;
+      }
       navigation.navigate("Checkout", { items: [item] });
     };
 
