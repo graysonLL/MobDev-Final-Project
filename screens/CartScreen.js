@@ -48,6 +48,11 @@ export default function CartScreen() {
     }
   };
 
+
+  const handleCheckout = () => {
+    navigation.push("Checkout", { items: cartItems });
+  };
+
   return (
     <FlatList
       data={cartItems}
@@ -67,7 +72,7 @@ export default function CartScreen() {
                 <Text style={CartStyles.textFormatting}>$ {calculateTotal()}</Text>
               </View>
             </View>
-            <TouchableOpacity  style={CartStyles.checkOut}>
+            <TouchableOpacity  style={CartStyles.checkOut} onPress={handleCheckout}>
               <Text style={{fontSize: 20, color:'white'}}>Check Out</Text>
             </TouchableOpacity>   
           </View>
@@ -80,8 +85,8 @@ export default function CartScreen() {
           </TouchableOpacity>
           <View style={CartStyles.detailsContainer}>
             <Text style={CartStyles.itemTitle}>{item.title}</Text>
-            <Text style={CartStyles.itemPrice}>{item.price}</Text>
-            <Text style={CartStyles.itemPrice}> Size: {size}</Text>
+            <Text style={CartStyles.itemPrice}>Price: ${item.price}</Text>
+            <Text style={CartStyles.itemPrice}>Size: {size}</Text>
           </View>
           <TouchableOpacity
             style={CartStyles.removeButton}

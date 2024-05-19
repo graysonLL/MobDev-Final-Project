@@ -20,6 +20,7 @@ const Tab = createBottomTabNavigator();
 export function TabNavigator() {
   const { userToken } = useContext(AuthContext);
   return (
+    <>
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
@@ -126,5 +127,7 @@ export function TabNavigator() {
         />
       )}
     </Tab.Navigator>
+
+    </>
   );
 }

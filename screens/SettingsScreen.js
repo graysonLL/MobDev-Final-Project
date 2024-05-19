@@ -42,17 +42,6 @@ export default function SettingsScreen({ route }) {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Wallet")}
-        style={styles.itemContainer}
-      >
-        <Image source={images.wallet} style={styles.image} />
-        <View style={styles.itemContent}>
-          <Text style={styles.heading}>Wallet</Text>
-          <Text>Payment Details</Text>
-        </View>
-      </TouchableOpacity>
-
 
       <TouchableOpacity
         onPress={() => {

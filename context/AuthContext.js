@@ -96,6 +96,8 @@ export const AuthProvider = ({ children }) => {
         phoneNumber: "",
         shoeSize: "",
         username: "",
+        firstName: "",
+        lastName: "",
         country: "",
         address1: "",
         address2: "",

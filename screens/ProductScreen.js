@@ -14,7 +14,7 @@ import styles from "../styles/ProductStyles";
 import HomeStyles from "../styles/HomeStyles";
 import ShoesData from "../resources/ShoesData";
 import sizingChart from "../images/shoesSizes.png";
-import shoppingCart from "../images/shoppingCart.png"
+import shoppingCart from "../images/shoppingCart.png";
 import { useNavigation } from "@react-navigation/native";
 import { Picker } from "@react-native-picker/picker";
 import Popup from "../components/Popup";
@@ -92,6 +92,13 @@ export default function ProductScreen({ route }) {
       console.error("Error adding item to cart:", error);
     }
   };
+
+
+    const handleCheckout = () => {
+      navigation.navigate("Checkout", { items: [item] });
+    };
+
+
 
 
   return (
@@ -253,7 +260,8 @@ export default function ProductScreen({ route }) {
 
       {/* Buttons section */}
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity style={styles.buyButton}>
+        <TouchableOpacity style={styles.buyButton} 
+        onPress={handleCheckout}>
           <Text style={styles.buyButtonText}>Buy Now</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buyButton}
