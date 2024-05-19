@@ -98,7 +98,7 @@ export const AuthProvider = ({ children }) => {
         username: "",
         firstName: "",
         lastName: "",
-        country: "",
+        country: "Philippines",
         address1: "",
         address2: "",
         city: "",

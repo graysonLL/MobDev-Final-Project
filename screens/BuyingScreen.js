@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Text, StyleSheet, View, FlatList, Button, Alert } from "react-native";
+import { Text, StyleSheet, View, FlatList, TouchableOpacity, Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigation } from "@react-navigation/native";
@@ -63,7 +63,12 @@ const BuyingScreen = () => {
           <Text>Price: ${orderItem.price}</Text>
         </View>
       ))}
-      <Button title="Cancel Order" onPress={() => cancelOrder(item.id)} />
+      <TouchableOpacity
+        style={styles.cancelButton}
+        onPress={() => cancelOrder(item.id)}
+      >
+        <Text style={styles.cancelButtonText}>Cancel Order</Text>
+      </TouchableOpacity>
     </View>
   );
 
@@ -77,11 +82,14 @@ const BuyingScreen = () => {
           renderItem={renderOrderItem}
         />
       ) : (
-        <Text>No in-progress orders found</Text>
+        <Text>No orders in-progress</Text>
       )}
-      <View style={styles.buttonContainer}>
-        <Button title="View Buying History" onPress={navigateToBuyingHistory} />
-      </View>
+      <TouchableOpacity
+        style={styles.buttonContainer}
+        onPress={navigateToBuyingHistory}
+      >
+        <Text style={styles.buttonText}>View Buying History</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -109,8 +117,27 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     marginTop: 5,
   },
+  cancelButton: {
+    backgroundColor: "purple",
+    padding: 10,
+    borderRadius: 5,
+    alignItems: "center",
+    marginTop: 10,
+  },
+  cancelButtonText: {
+    color: "#fff",
+    fontWeight: "bold",
+  },
   buttonContainer: {
+    backgroundColor: "purple",
+    padding: 15,
+    borderRadius: 5,
+    alignItems: "center",
     marginTop: 20,
+  },
+  buttonText: {
+    color: "#fff",
+    fontWeight: "bold",
   },
 });
 

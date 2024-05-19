@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { Text, StyleSheet, View, Image, Button, KeyboardAvoidingView, Alert } from "react-native";
+import { Text, StyleSheet, View, Image, Button, KeyboardAvoidingView, Alert, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ScrollView } from "react-native-gesture-handler";
 import uuid from 'react-native-uuid';
 import { AuthContext } from "../context/AuthContext";
+import CartStyles from "../styles/CartStyles";
 
 export default function CheckoutScreen({ route }) {
   const { items } = route.params;
@@ -77,12 +78,12 @@ export default function CheckoutScreen({ route }) {
 
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
-      <ScrollView style={styles.container}>
+      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <Text style={styles.heading}>Shipping Details</Text>
         <View style={styles.shippingDetailsContainer}>
           <Text style={styles.detailText}>Name: {currentUser.firstName} {currentUser.lastName}</Text>
           <Text style={styles.detailText}>Country: {currentUser.country}</Text>
-          <Text style={styles.detailText}>Address 1: {currentUser.address1}</Text>
+          <Text style={styles.detailText}>Address 1: {currentUser.address}</Text>
           <Text style={styles.detailText}>Address 2: {currentUser.address2}</Text>
           <Text style={styles.detailText}>City: {currentUser.city}</Text>
           <Text style={styles.detailText}>Region: {currentUser.region}</Text>
@@ -108,9 +109,11 @@ export default function CheckoutScreen({ route }) {
 
         <Text style={styles.totalPrice}>SUBTOTAL: $ {calculateSubtotal().toFixed(2)}</Text>
         <Text style={styles.totalPrice}>SHIPPING: $ 10.00</Text>
-        <Text style={styles.totalPrice}>TOTAL: $ {calculateTotal()}</Text>
+        <Text style={styles.grandTotalPrice}>TOTAL: $ {calculateTotal()}</Text>
 
-        <Button title="Confirm Order" onPress={handleConfirmOrder} />
+        <TouchableOpacity style={CartStyles.checkOut} onPress={handleConfirmOrder}>
+          <Text style={{ fontSize: 20, color: 'white' }}>Confirm Order</Text>
+        </TouchableOpacity>
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -120,6 +123,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+  },
+  contentContainer: {
+    paddingBottom: 40, // Adding padding to the bottom of the ScrollView
   },
   heading: {
     fontSize: 20,
@@ -165,5 +171,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "right",
     marginTop: 20,
+  },
+  grandTotalPrice: {
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "right",
+    marginTop: 20,
+    marginBottom: 20,
   },
 });
