@@ -2,22 +2,19 @@ import React, { useState, useContext } from "react";
 import { Text, StyleSheet, View, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { AuthContext } from "../context/AuthContext";
-import images from "../images/imagesExport";
+import { Picker } from "@react-native-picker/picker";
+import PhoneInput from "react-native-phone-input";
 
 export default function EditProfileScreen({ route }) {
   const navigation = useNavigation();
   const { updateUser } = useContext(AuthContext);
 
-
   if (!route || !route.params || !route.params.user) {
     console.error("Route or route params is undefined");
-    return null; 
+    return null;
   }
 
-  
   const { user } = route.params;
-  
- 
   const { name, username, email, number, size, password } = user;
 
   const [newName, setNewName] = useState(name);
@@ -27,6 +24,10 @@ export default function EditProfileScreen({ route }) {
   const [newShoeSize, setNewShoeSize] = useState(size);
   const [newPassword, setNewPassword] = useState(password);
   const [showPassword, setShowPassword] = useState(false);
+
+  const sizes = [
+    "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "12", "13",
+  ];
 
   const handleSave = () => {
     const updatedUser = {
@@ -47,7 +48,7 @@ export default function EditProfileScreen({ route }) {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Name</Text>
         <TextInput
@@ -56,7 +57,6 @@ export default function EditProfileScreen({ route }) {
           onChangeText={(text) => setNewName(text)}
         />
       </View>
-
 
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Username</Text>
@@ -67,7 +67,6 @@ export default function EditProfileScreen({ route }) {
         />
       </View>
 
-
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Email</Text>
         <TextInput
@@ -76,43 +75,48 @@ export default function EditProfileScreen({ route }) {
           editable={false}
           onChangeText={(text) => setNewEmail(text)}
         />
-
-
       </View>
+
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Phone Number</Text>
-        <TextInput
+        <PhoneInput
           style={styles.input}
+          initialCountry="ph"
           value={newPhoneNumber}
-          onChangeText={(text) => setNewPhoneNumber(text)}
+          onChangePhoneNumber={(text) => setNewPhoneNumber(text)}
+          countryPickerProps={{
+            countryCodes: ['PH'],
+          }}
         />
       </View>
-
 
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Shoe Size (US)</Text>
-        <TextInput
-          style={styles.input}
-          value={newShoeSize}
-          onChangeText={(text) => setNewShoeSize(text)}
-        />
+        <View style={styles.pickerContainer}>
+          <Picker
+            selectedValue={newShoeSize}
+            onValueChange={(itemValue) => setNewShoeSize(itemValue)}
+          >
+            {sizes.map((size) => (
+              <Picker.Item key={size} label={size} value={size} />
+            ))}
+          </Picker>
+        </View>
       </View>
-
 
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Password</Text>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <TextInput
             style={[styles.input, { flex: 1 }]}
-            value={showPassword ? password : '********'}
-            editable={false} 
+            value={showPassword ? newPassword : '********'}
+            editable={false}
           />
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
             <Text style={styles.toggleButton}>{showPassword ? 'Hide' : 'Show'}</Text>
           </TouchableOpacity>
         </View>
       </View>
-
 
       <TouchableOpacity style={styles.button} onPress={handleSave}>
         <Text style={styles.buttonText}>Save</Text>
@@ -130,6 +134,9 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "#fff",
   },
+  contentContainer: {
+    paddingBottom: 40, // Adding padding to the bottom of the ScrollView
+  },
   inputContainer: {
     marginBottom: 20,
   },
@@ -143,6 +150,12 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
   },
+  pickerContainer: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 5,
+    overflow: 'hidden', // To make the picker smaller
+  },
   button: {
     backgroundColor: "purple",
     padding: 15,
@@ -153,5 +166,9 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontWeight: "bold",
+  },
+  toggleButton: {
+    color: "blue",
+    marginLeft: 10,
   },
 });

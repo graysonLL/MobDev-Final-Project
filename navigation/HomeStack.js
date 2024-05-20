@@ -15,9 +15,10 @@ export function HomeStack() {
       <Stack.Screen
         name="Product"
         component={ProductScreen}
-        options={{title:"Details"}}
+        options={{ title: "Details" }}
       />
-      <Stack.Screen name="Cart" component={CartScreen} options={{title:"My Cart"}}/>
+      <Stack.Screen name="Cart" component={CartScreen} options={{ title: "My Cart" }} />
+      <Stack.Screen name="Checkout" component={CheckoutScreen} />
       <Stack.Screen
         name="Search Result"
         component={SearchResultScreen}

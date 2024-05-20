@@ -2,9 +2,8 @@ import React, { useState, useContext } from "react";
 import { Text, StyleSheet, View, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { AuthContext } from "../context/AuthContext";
-import images from "../images/imagesExport";
-
-
+import { Picker } from "@react-native-picker/picker";
+import PhoneInput from "react-native-phone-input";
 
 export default function EditShippingScreen({ route }) {
   const navigation = useNavigation();
@@ -28,6 +27,8 @@ export default function EditShippingScreen({ route }) {
   const [newPostalCode, setNewPostalCode] = useState(postalCode);
   const [newShippingNumber, setNewShippingNumber] = useState(shippingNumber);
 
+  const regions = ["National Capital Region (NCR)", "Cordillera Administrative Region (CAR)", "Ilocos Region (Region I)", "Cagayan Valley (Region II)", "Central Luzon (Region III)", "Calabarzon (Region IV-A)", "Southwestern Tagalog Region (Mimaropa)", "Bicol Region (Region V)", "Western Visayas (Region VI)", "Central Visayas (Region VII)", "Eastern Visayas (Region VII)", "Zamboanga Peninsula (Region IX)", "Northern Mindanao (Region X)", "Davao Region (Region XI)", "Soccsksargen (Region XII)", "Caraga (Region XIII)", "Bangsamoro (BARMM)"]; // Add your regions here
+
   const handleSave = () => {
     const updatedUser = {
       ...user,
@@ -50,7 +51,7 @@ export default function EditShippingScreen({ route }) {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <View style={styles.inputContainer}>
         <Text style={styles.label}>First Name</Text>
         <TextInput
@@ -72,11 +73,11 @@ export default function EditShippingScreen({ route }) {
         <TextInput
           style={styles.input}
           value={newCountry}
-          onChangeText={(text) => setNewCountry(text)}
+          editable={false}
         />
       </View>
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Address</Text>
+        <Text style={styles.label}>Address (Street Address)</Text>
         <TextInput
           style={styles.input}
           value={newAddress}
@@ -84,7 +85,7 @@ export default function EditShippingScreen({ route }) {
         />
       </View>
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Address 2</Text>
+        <Text style={styles.label}>Address 2 (Apartment, suite, unit, building, floor, etc.)</Text>
         <TextInput
           style={styles.input}
           value={newAddress2}
@@ -101,11 +102,16 @@ export default function EditShippingScreen({ route }) {
       </View>
       <View style={styles.inputContainer}>
         <Text style={styles.label}>State/Region</Text>
-        <TextInput
-          style={styles.input}
-          value={newRegion}
-          onChangeText={(text) => setNewRegion(text)}
-        />
+        <View style={styles.pickerContainer}>
+          <Picker
+            selectedValue={newRegion}
+            onValueChange={(itemValue) => setNewRegion(itemValue)}
+          >
+            {regions.map((region) => (
+              <Picker.Item key={region} label={region} value={region}/>
+            ))}
+          </Picker>
+        </View>
       </View>
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Postal Code</Text>
@@ -117,10 +123,14 @@ export default function EditShippingScreen({ route }) {
       </View>
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Phone Number</Text>
-        <TextInput
+        <PhoneInput
           style={styles.input}
+          initialCountry="ph"
           value={newShippingNumber}
-          onChangeText={(text) => setNewShippingNumber(text)}
+          onChangePhoneNumber={(text) => setNewShippingNumber(text)}
+          countryPickerProps={{
+            countryCodes: ['PH'],
+          }}
         />
       </View>
       <TouchableOpacity style={styles.button} onPress={handleSave}>
@@ -139,6 +149,9 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "#fff",
   },
+  contentContainer: {
+    paddingBottom: 40, // Adding padding to the bottom of the ScrollView
+  },
   inputContainer: {
     marginBottom: 20,
   },
@@ -151,6 +164,11 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     borderRadius: 5,
     padding: 10,
+  },
+  pickerContainer: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 5,
   },
   button: {
     backgroundColor: "purple",

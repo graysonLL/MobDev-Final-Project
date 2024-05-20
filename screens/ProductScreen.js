@@ -14,7 +14,7 @@ import styles from "../styles/ProductStyles";
 import HomeStyles from "../styles/HomeStyles";
 import ShoesData from "../resources/ShoesData";
 import sizingChart from "../images/shoesSizes.png";
-import shoppingCart from "../images/shoppingCart.png"
+import shoppingCart from "../images/shoppingCart.png";
 import { useNavigation } from "@react-navigation/native";
 import { Picker } from "@react-native-picker/picker";
 import Popup from "../components/Popup";
@@ -73,9 +73,16 @@ export default function ProductScreen({ route }) {
    /* Adding Items to Cart*/
 
    const { saveCartItems, loadCartItems } = CartList();
+   const {userToken} = useContext(AuthContext);
 
   const addToCart = async () => {
     try {
+
+      if(!userToken){
+        setPopupMessage("Sign in to add to cart!");
+        setPopupVisible(true);
+        return;
+      }
       const newItem = item;
       const storedCartItems = await loadCartItems();
       const existingItem = storedCartItems.find(cartItem => cartItem.key === newItem.key);
@@ -92,6 +99,18 @@ export default function ProductScreen({ route }) {
       console.error("Error adding item to cart:", error);
     }
   };
+
+
+    const handleCheckout = () => {
+      if(!userToken){
+        setPopupMessage("Sign in to purchase a product!");
+        setPopupVisible(true);
+        return;
+      }
+      navigation.navigate("Checkout", { items: [item] });
+    };
+
+
 
 
   return (
@@ -253,7 +272,8 @@ export default function ProductScreen({ route }) {
 
       {/* Buttons section */}
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity style={styles.buyButton}>
+        <TouchableOpacity style={styles.buyButton} 
+        onPress={handleCheckout}>
           <Text style={styles.buyButtonText}>Buy Now</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buyButton}

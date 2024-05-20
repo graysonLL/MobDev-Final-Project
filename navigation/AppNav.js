@@ -22,7 +22,7 @@ export const AppNav = () => {
 
   return (
     <NavigationContainer>
-      {userToken !== null ? <TabNavigator /> : <AuthStack />}
+      {userToken !== null ? <TabNavigator />: <AuthStack />}
     </NavigationContainer>
   );
 };
