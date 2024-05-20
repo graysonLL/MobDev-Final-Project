@@ -11,6 +11,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import FavoriteList from "../resources/FavoriteList";
 import FavoritesStyles from "../styles/FavoritesStyles";
+import ShoppingCart from "../components/shoppingCart";
 import { useEffect } from "react";
 
 export default function FavoritesScreen({}) {
@@ -24,7 +25,7 @@ export default function FavoritesScreen({}) {
     return unsubscribe;
   }, [navigation, loadFavoriteShoes]);
   return (
-    <View>
+    <View style={{flex:1}}>
       <FlatList
         data={favoriteShoes}
         numColumns={1}
@@ -40,6 +41,8 @@ export default function FavoritesScreen({}) {
           </TouchableOpacity>
         )}
       />
+
+    <ShoppingCart/>
     </View>
   );
 }

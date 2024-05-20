@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { useState } from "react";
 import SearchStyles from "../styles/SearchStyles";
-import SearchData from "../resources/SearchData";
+import SearchData from "../resources/ShoesData";
 import SearchFilter from "../components/SearchFilter";
 import { KeyboardAvoidingView } from "react-native";
 import ActiveSearch from "../components/ActiveSearch";
@@ -233,40 +233,21 @@ export default function SearchScreen({ route }) {
                 </TouchableOpacity>
                 <TouchableOpacity
                   activeOpacity={1}
-                  onPress={() => filterByCategory("vans")}
+                  onPress={() => filterByCategory("off-white")}
                   style={[
                     SearchStyles.categoryText,
-                    selectedCategory === "vans" &&
+                    selectedCategory === "off-white" &&
                       SearchStyles.categoryTextSelected,
                   ]}
                 >
                   <Text
                     style={[
-                      selectedCategory === "vans"
+                      selectedCategory === "off-white"
                         ? { color: "black" }
                         : { color: "grey" },
                     ]}
                   >
-                    Vans
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  activeOpacity={1}
-                  onPress={() => filterByCategory("puma")}
-                  style={[
-                    SearchStyles.categoryText,
-                    selectedCategory === "puma" &&
-                      SearchStyles.categoryTextSelected,
-                  ]}
-                >
-                  <Text
-                    style={[
-                      selectedCategory === "puma"
-                        ? { color: "black" }
-                        : { color: "grey" },
-                    ]}
-                  >
-                    Puma
+                    Off-White
                   </Text>
                 </TouchableOpacity>
               </View>

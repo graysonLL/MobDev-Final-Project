@@ -10,6 +10,7 @@ import {
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import SearchStyles from "../styles/SearchStyles";
+import ShoppingCart from "../components/shoppingCart";
 
 const SearchFilter = ({ data, input, setInput, selectedCategory }) => {
   const navigation = useNavigation();
@@ -22,22 +23,27 @@ const SearchFilter = ({ data, input, setInput, selectedCategory }) => {
   });
 
   return (
-    <FlatList
-      data={filteredShoes}
-      contentContainerStyle={{ paddingBottom: 70 }}
-      numColumns={2}
-      style={SearchStyles.listContainer}
-      renderItem={({ item }) => (
-        <TouchableOpacity
-          style={SearchStyles.itemContainer}
-          onPress={() => navigation.navigate("Product", { item })}
-        >
-          <Image source={item.image} style={SearchStyles.itemImage} />
-          <Text style={SearchStyles.itemTitle}>{item.title}</Text>
-          <Text style={SearchStyles.itemPrice}>{item.price}</Text>
-        </TouchableOpacity>
-      )}
-    />
+    <View style={{ flex: 1 }}>
+      <FlatList
+        data={filteredShoes}
+        contentContainerStyle={{ paddingBottom: 70 }}
+        numColumns={2}
+        style={SearchStyles.listContainer}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={SearchStyles.itemContainer}
+            onPress={() => navigation.navigate("Product", { item })}
+          >
+            <Image source={item.image} style={SearchStyles.itemImage} />
+            <Text style={SearchStyles.itemTitle}>{item.title}</Text>
+
+            <Text style={SearchStyles.itemPrice}>$ {item.price}</Text>
+            <Text style={SearchStyles.itemBody}>{item.color}</Text>
+          </TouchableOpacity>
+        )}
+      />
+      <ShoppingCart />
+    </View>
   );
 };
 

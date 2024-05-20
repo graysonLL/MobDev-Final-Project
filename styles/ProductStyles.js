@@ -9,6 +9,7 @@ const itemWidth = (width - margin * 2) / 2;
 const ProductScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:'transparent'
   },
   scrollContainer: {
     flexGrow: 1,
@@ -23,6 +24,9 @@ const ProductScreenStyles = StyleSheet.create({
     padding: 10,
   },
   picContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     height: 270,
   },
   itemImage: {
@@ -31,7 +35,7 @@ const ProductScreenStyles = StyleSheet.create({
     marginVertical: 10,
   },
   sizeContainer: {
-    marginTop: 5,
+    marginTop: 10,
     marginBottom: 25,
     flexDirection: 'row',
     height: 50,
@@ -43,6 +47,17 @@ const ProductScreenStyles = StyleSheet.create({
     marginLeft: 10,
     flex: 1,
     justifyContent: 'center',
+  },
+  favoritesContainer:{
+    flexDirection: 'row',
+    borderWidth: 1, 
+    borderColor: 'green',
+    height: 50,
+    marginBottom: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 25,
+    backgroundColor: 'green'
   },
   infoContainer:{   
     //borderWidth: 1, //commentable
@@ -72,8 +87,8 @@ const ProductScreenStyles = StyleSheet.create({
     paddingLeft: 20,
   },
   buttonsContainer:{
-    borderTopWidth: 1,
-    borderColor: 'gray',
+    backgroundColor: 'white',
+    elevation: 5,
     //borderWidth: 1,   //commentable
     flexDirection: 'row',
     padding: 10,
@@ -105,6 +120,7 @@ const ProductScreenStyles = StyleSheet.create({
     marginLeft: 5,
     fontSize: 15,
   },
+  
 });
 
 export default ProductScreenStyles;

@@ -18,6 +18,7 @@ export default function SettingsScreen({ route }) {
 
   return (
     <View>
+
       <TouchableOpacity
         onPress={() => navigation.navigate("Profile")}
         style={styles.itemContainer}
@@ -28,6 +29,8 @@ export default function SettingsScreen({ route }) {
           <Text>Name, Email, Password, Shoe Size</Text>
         </View>
       </TouchableOpacity>
+
+
       <TouchableOpacity
         onPress={() => navigation.navigate("Buying")}
         style={styles.itemContainer}
@@ -38,6 +41,19 @@ export default function SettingsScreen({ route }) {
           <Text>In-Progress, Orders</Text>
         </View>
       </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Wallet")}
+        style={styles.itemContainer}
+      >
+        <Image source={images.wallet} style={styles.image} />
+        <View style={styles.itemContent}>
+          <Text style={styles.heading}>Wallet</Text>
+          <Text>Payment Details</Text>
+        </View>
+      </TouchableOpacity>
+
+
       <TouchableOpacity
         onPress={() => {
           logout();
@@ -57,7 +73,7 @@ const styles = StyleSheet.create({
   itemContainer: {
     marginBottom: 0,
     padding: 12,
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "white",
     borderRadius: 1,
     // alignItems: "center",
     // justifyContent: "center",
