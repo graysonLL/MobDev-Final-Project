@@ -5,7 +5,7 @@ import images from "../images/imagesExport";
 const ShoesData = () => {
   const [shoes, setShoes] = useState([
     {
-      category: 'jordan',
+      category: "jordan",
       title: "Jordan 1 Retro Chicago",
       color: "White/Red/Black",
       date: "11/19/2022",
@@ -14,10 +14,10 @@ const ShoesData = () => {
       key: "1",
       image: images.j1,
       notif: "Brand new Chicago 1s are out!",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'jordan',
+      category: "jordan",
       title: "Women's Air Jordan 1 Low",
       color: "White/Beige",
       date: "03/28/2024",
@@ -26,10 +26,10 @@ const ShoesData = () => {
       key: "2",
       image: images.j2,
       notif: "Dunks!?",
-      notifBody: "Place an order now!"
+      notifBody: "Place an order now!",
     },
     {
-      category: 'jordan',
+      category: "jordan",
       title: "Air Jordan 1 Low 'Dark Grey'",
       color: "Sail/Off Noir-Dark Grey-White",
       date: "03/29/2023",
@@ -38,10 +38,10 @@ const ShoesData = () => {
       key: "3",
       image: images.j3,
       notif: "Dunk it, Jonathan!",
-      notifBody: "Dunk na!"
+      notifBody: "Dunk na!",
     },
     {
-      category: 'jordan',
+      category: "jordan",
       title: "Kid's Air Jordan 1 Mid SE",
       color: "Anthracite/Sail/Red",
       date: "05/07/2022",
@@ -50,10 +50,10 @@ const ShoesData = () => {
       key: "4",
       image: images.j4,
       notif: "Brand new Chicago 1s are out!",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'jordan',
+      category: "jordan",
       title: "Air Jordan 1 Mid 'Panda'",
       color: "White/Black",
       date: "06/20/2023",
@@ -62,10 +62,10 @@ const ShoesData = () => {
       key: "5",
       image: images.j5,
       notif: "Brand new Chicago 1s are out!",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'jordan',
+      category: "jordan",
       title: "Jordan 1 Retro High Element",
       color: "Sky J Purple/Sail-Black",
       date: "10/14/2023",
@@ -74,10 +74,10 @@ const ShoesData = () => {
       key: "6",
       image: images.j6,
       notif: "Brand new Chicago 1s are out!",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'converse',
+      category: "converse",
       title: "Converse Chuck Taylor 70s - Low",
       color: "Black/White",
       date: "2013",
@@ -86,10 +86,10 @@ const ShoesData = () => {
       key: "7",
       image: images.c1,
       notif: "Brand new Chuck 70s are out!",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'converse',
+      category: "converse",
       title: "Converse Chuck Taylor 70s - High",
       color: "Black/Cream White",
       date: "2013",
@@ -98,10 +98,10 @@ const ShoesData = () => {
       key: "8",
       image: images.c2,
       notif: "Brand new Chuck 70 highs are out!",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'converse',
+      category: "converse",
       title: "Converse Star Player 76",
       color: "White/Black Accents",
       date: "05/07/2018",
@@ -110,10 +110,10 @@ const ShoesData = () => {
       key: "9",
       image: images.c3,
       notif: "Brand new Star Player's are out!",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'converse',
+      category: "converse",
       title: "Converse Chuck Taylor x CDG",
       color: "Black/White/Red",
       date: "2015",
@@ -122,10 +122,10 @@ const ShoesData = () => {
       key: "10",
       image: images.c4,
       notif: "Brand new Star Player's are out!",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'nike',
+      category: "nike",
       title: "Nike Dunk Low Panda",
       color: "Black/White",
       date: "03/10/2021",
@@ -134,10 +134,10 @@ const ShoesData = () => {
       key: "11",
       image: images.n1,
       notif: "Brand new Panda's are out!",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'nike',
+      category: "nike",
       title: "Nike Air Force 1 Low '07",
       color: "Black/White",
       date: "12/09/2017",
@@ -146,10 +146,10 @@ const ShoesData = () => {
       key: "12",
       image: images.n2,
       notif: "Who doesn't like AF1s!?",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'nike',
+      category: "nike",
       title: "Nike Air Max 97",
       color: "White/Wolf-Gray",
       date: "05/01/2023",
@@ -158,10 +158,10 @@ const ShoesData = () => {
       key: "13",
       image: images.n3,
       notif: "Blast from the past!",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'nike',
+      category: "nike",
       title: "Nike Blazer Mid 77",
       color: "Summit White/Black",
       date: "03/25/2019",
@@ -170,10 +170,10 @@ const ShoesData = () => {
       key: "14",
       image: images.n4,
       notif: "Blast from the past!",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'nike',
+      category: "nike",
       title: "Nike Air Presto",
       color: "White/Dark Gray",
       date: "05/19/2022",
@@ -182,10 +182,10 @@ const ShoesData = () => {
       key: "15",
       image: images.n5,
       notif: "Want shoes for a run?",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'adidas',
+      category: "adidas",
       title: "Adidas Samba OG",
       color: "Night Navy/Cream White/Gum",
       date: "04/14/2023",
@@ -194,10 +194,10 @@ const ShoesData = () => {
       key: "16",
       image: images.a1,
       notif: "New kicks from adidas!",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'adidas',
+      category: "adidas",
       title: "Adidas UltraBoost 1.0",
       color: "Black/White",
       date: "2015",
@@ -206,10 +206,10 @@ const ShoesData = () => {
       key: "17",
       image: images.a2,
       notif: "New running shoes?",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'adidas',
+      category: "adidas",
       title: "Adidas NMD R1 PrimeKnit",
       color: "Black/White",
       date: "2015",
@@ -218,10 +218,10 @@ const ShoesData = () => {
       key: "18",
       image: images.a3,
       notif: "New running shoes?",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'adidas',
+      category: "adidas",
       title: "Adidas Yeezy Boost 350",
       color: "Black/Black/Black",
       date: "03/05/2022",
@@ -230,10 +230,10 @@ const ShoesData = () => {
       key: "19",
       image: images.a4,
       notif: "Triple blacks are out!",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'off-white',
+      category: "off-white",
       title: "Off-White Air Force 1 Low",
       color: "Black/White-Cone-Black",
       date: "12/19/2018",
@@ -242,10 +242,10 @@ const ShoesData = () => {
       key: "20",
       image: images.o3,
       notif: "Collab Season",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'off-white',
+      category: "off-white",
       title: "Off-White Air Force 1 Low",
       color: "White/White-Sail",
       date: "11/01/2017",
@@ -254,10 +254,10 @@ const ShoesData = () => {
       key: "21",
       image: images.o2,
       notif: "Collab Season",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'off-white',
+      category: "off-white",
       title: "Off-White Jordan 1 Retro High",
       color: "White/Black-Varsity-Red",
       date: "11/09/2017",
@@ -266,10 +266,10 @@ const ShoesData = () => {
       key: "22",
       image: images.o1,
       notif: "Collab Season",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
     {
-      category: 'off-white',
+      category: "off-white",
       title: "Off-White VaporMax",
       color: "Black/Black",
       date: "09/09/2017",
@@ -278,7 +278,7 @@ const ShoesData = () => {
       key: "23",
       image: images.o4,
       notif: "Collab Season",
-      notifBody: "Cop now!"
+      notifBody: "Cop now!",
     },
   ]);
 

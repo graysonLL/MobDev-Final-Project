@@ -1,7 +1,6 @@
 import { View, Text, FlatList, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import ActiveSearchStyles from "../styles/ActiveSearchStyles";
-import SearchData from "../resources/SearchData";
 import { useNavigation } from "@react-navigation/native";
 import { ScrollView } from "react-native-gesture-handler";
 

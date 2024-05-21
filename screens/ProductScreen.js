@@ -20,7 +20,7 @@ import { Picker } from "@react-native-picker/picker";
 import Popup from "../components/Popup";
 import FavoriteList from "../resources/FavoriteList";
 import CartList from "../resources/CartList";
-import ShoppingCart from "../components/shoppingCart"
+import ShoppingCart from "../components/shoppingCart";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -30,6 +30,8 @@ export default function ProductScreen({ route }) {
   const { title, price, body, image, category, color, date } = item;
   const navigation = useNavigation();
   const [selectedSize, setSelectedSize] = useState();
+  const { favoriteShoes } = FavoriteList();
+  const [isFavorite, setIsFavorite] = useState(false);
   const sizes = [
     "7",
     "7.5",
@@ -50,13 +52,24 @@ export default function ProductScreen({ route }) {
   const [popupVisible, setPopupVisible] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
 
-  const handleClosePopup = () =>{
-    setPopupVisible(false); 
-  }
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+  };
 
-
-   /* Saving Products to Favorites */
+  /* Saving Products to Favorites */
   const { saveFavoriteShoes, loadFavoriteShoes } = FavoriteList();
+
+  useEffect(() => {
+    const checkFavoriteStatus = async () => {
+      const favorites = await loadFavoriteShoes();
+      const isFavorited = favorites.some((favShoe) => favShoe.key === item.key);
+      setIsFavorite(isFavorited);
+    };
+
+    if (userToken) {
+      checkFavoriteStatus();
+    }
+  }, [userToken, item.key]);
 
   const addToFavorites = async () => {
     try {
@@ -64,54 +77,55 @@ export default function ProductScreen({ route }) {
       const storedFavoriteShoes = await loadFavoriteShoes();
       // const updatedFavoriteShoes = [...storedFavoriteShoes, newShoe];
       saveFavoriteShoes(storedFavoriteShoes, newShoe);
+      if (isFavorite == true) {
+        setIsFavorite(false);
+      } else {
+        setIsFavorite(true);
+      }
     } catch (error) {
       console.error("Error adding shoe to favorites:", error);
     }
   };
 
+  /* Adding Items to Cart*/
 
-   /* Adding Items to Cart*/
-
-   const { saveCartItems, loadCartItems } = CartList();
-   const {userToken} = useContext(AuthContext);
+  const { saveCartItems, loadCartItems } = CartList();
+  const { userToken } = useContext(AuthContext);
 
   const addToCart = async () => {
     try {
-
-      if(!userToken){
+      if (!userToken) {
         setPopupMessage("Sign in to add to cart!");
         setPopupVisible(true);
         return;
       }
       const newItem = item;
       const storedCartItems = await loadCartItems();
-      const existingItem = storedCartItems.find(cartItem => cartItem.key === newItem.key);
-      
+      const existingItem = storedCartItems.find(
+        (cartItem) => cartItem.key === newItem.key
+      );
+
       if (existingItem) {
         setPopupMessage("Item is already in the cart!");
       } else {
         await saveCartItems(storedCartItems, newItem);
         setPopupMessage("Item added to cart!");
       }
-      
+
       setPopupVisible(true);
     } catch (error) {
       console.error("Error adding item to cart:", error);
     }
   };
 
-
-    const handleCheckout = () => {
-      if(!userToken){
-        setPopupMessage("Sign in to purchase a product!");
-        setPopupVisible(true);
-        return;
-      }
-      navigation.navigate("Checkout", { items: [item] });
-    };
-
-
-
+  const handleCheckout = () => {
+    if (!userToken) {
+      setPopupMessage("Sign in to purchase a product!");
+      setPopupVisible(true);
+      return;
+    }
+    navigation.navigate("Checkout", { items: [item] });
+  };
 
   return (
     <View style={styles.container}>
@@ -128,19 +142,41 @@ export default function ProductScreen({ route }) {
               marginBottom: 15,
             }}
           >
-            <Text style={{ fontSize: 25, flex: 1, marginRight: 20}}>{title}</Text>
-            <Text style={{ fontSize: 25, marginLeft: 'auto'}}>$ {price}</Text>
+            <Text style={{ fontSize: 25, flex: 1, marginRight: 20 }}>
+              {title}
+            </Text>
+            <Text style={{ fontSize: 25, marginLeft: "auto" }}>$ {price}</Text>
           </View>
 
-        <TouchableOpacity onPress={addToFavorites}>
-          <View style={styles.favoritesContainer}>
-          <Text style={{color: 'white', justifyContent: 'center', fontSize: 18}}>Add to Favorites</Text>
-          </View>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={addToFavorites}>
+            {isFavorite ? (
+              <View style={styles.alreadyFavoritedContainer}>
+                <Text
+                  style={{
+                    color: "white",
+                    justifyContent: "center",
+                    fontSize: 18,
+                  }}
+                >
+                  Remove from Favorites
+                </Text>
+              </View>
+            ) : (
+              <View style={styles.favoritesContainer}>
+                <Text
+                  style={{
+                    color: "white",
+                    justifyContent: "center",
+                    fontSize: 18,
+                  }}
+                >
+                  Add to Favorites
+                </Text>
+              </View>
+            )}
+          </TouchableOpacity>
 
-          <View
-            style={styles.infoContainer}
-          >
+          <View style={styles.infoContainer}>
             <Text style={{ fontSize: 18 }}>Product Details</Text>
             <Text style={styles.infoText}>Brand: {category} </Text>
             <Text style={styles.infoText}>Colourway: {color}</Text>
@@ -200,65 +236,81 @@ export default function ProductScreen({ route }) {
               showsHorizontalScrollIndicator={false}
             >
               <View style={{ flexDirection: "row" }}>
-              <TouchableOpacity
-              onPress={() =>
-                navigation.push("Product", { item: products[1] })
-              }
-            >
-              <View style={HomeStyles.productContainer}>
-                <Image
-                  source={products[1].image}
-                  style={HomeStyles.recommendedImages}
-                />
-                <Text style={HomeStyles.shoeTitle}>{products[1].title}</Text>
-                <Text style={HomeStyles.shoePrice}>$ {products[1].price}</Text>
-              </View>
-            </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.push("Product", { item: products[1] })
+                  }
+                >
+                  <View style={HomeStyles.productContainer}>
+                    <Image
+                      source={products[1].image}
+                      style={HomeStyles.recommendedImages}
+                    />
+                    <Text style={HomeStyles.shoeTitle}>
+                      {products[1].title}
+                    </Text>
+                    <Text style={HomeStyles.shoePrice}>
+                      $ {products[1].price}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
 
-            <TouchableOpacity
-              onPress={() =>
-                navigation.push("Product", { item: products[3] })
-              }
-            >
-              <View style={HomeStyles.productContainer}>
-                <Image
-                  source={products[3].image}
-                  style={HomeStyles.recommendedImages}
-                />
-                <Text style={HomeStyles.shoeTitle}>{products[3].title}</Text>
-                <Text style={HomeStyles.shoePrice}>$ {products[3].price}</Text>
-              </View>
-            </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.push("Product", { item: products[3] })
+                  }
+                >
+                  <View style={HomeStyles.productContainer}>
+                    <Image
+                      source={products[3].image}
+                      style={HomeStyles.recommendedImages}
+                    />
+                    <Text style={HomeStyles.shoeTitle}>
+                      {products[3].title}
+                    </Text>
+                    <Text style={HomeStyles.shoePrice}>
+                      $ {products[3].price}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
 
-            <TouchableOpacity
-              onPress={() =>
-                navigation.push("Product", { item: products[5] })
-              }
-            >
-              <View style={HomeStyles.productContainer}>
-                <Image
-                  source={products[5].image}
-                  style={HomeStyles.recommendedImages}
-                />
-                <Text style={HomeStyles.shoeTitle}>{products[5].title}</Text>
-                <Text style={HomeStyles.shoePrice}>$ {products[5].price}</Text>
-              </View>
-            </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.push("Product", { item: products[5] })
+                  }
+                >
+                  <View style={HomeStyles.productContainer}>
+                    <Image
+                      source={products[5].image}
+                      style={HomeStyles.recommendedImages}
+                    />
+                    <Text style={HomeStyles.shoeTitle}>
+                      {products[5].title}
+                    </Text>
+                    <Text style={HomeStyles.shoePrice}>
+                      $ {products[5].price}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
 
-            <TouchableOpacity
-              onPress={() =>
-                navigation.push("Product", { item: products[2] })
-              }
-            >
-              <View style={HomeStyles.productContainer}>
-                <Image
-                  source={products[2].image}
-                  style={HomeStyles.recommendedImages}
-                />
-                <Text style={HomeStyles.shoeTitle}>{products[2].title}</Text>
-                <Text style={HomeStyles.shoePrice}>$ {products[2].price}</Text>
-              </View>
-            </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.push("Product", { item: products[2] })
+                  }
+                >
+                  <View style={HomeStyles.productContainer}>
+                    <Image
+                      source={products[2].image}
+                      style={HomeStyles.recommendedImages}
+                    />
+                    <Text style={HomeStyles.shoeTitle}>
+                      {products[2].title}
+                    </Text>
+                    <Text style={HomeStyles.shoePrice}>
+                      $ {products[2].price}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
               </View>
             </ScrollView>
           </View>
@@ -266,25 +318,21 @@ export default function ProductScreen({ route }) {
         </View>
       </ScrollView>
 
-      {/* Shopping Cart Component */}            
-      <ShoppingCart size ={selectedSize} />
-      {/* Shopping Cart Component */}  
+      {/* Shopping Cart Component */}
+      <ShoppingCart size={selectedSize} />
+      {/* Shopping Cart Component */}
 
       {/* Buttons section */}
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity style={styles.buyButton} 
-        onPress={handleCheckout}>
+        <TouchableOpacity style={styles.buyButton} onPress={handleCheckout}>
           <Text style={styles.buyButtonText}>Buy Now</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buyButton}
-         onPress={addToCart}>
+        <TouchableOpacity style={styles.buyButton} onPress={addToCart}>
           <Text style={styles.buyButtonText}>Add To Cart</Text>
         </TouchableOpacity>
       </View>
       {/* Buttons section */}
 
-      
-      
       {/*handles the sizing chart being clicked and opening */}
       <Modal visible={isModalVisibile} animationType="slide" transparent={true}>
         <View style={styles.sizingChartContainer}>
@@ -297,13 +345,12 @@ export default function ProductScreen({ route }) {
           <Image source={sizingChart} style={styles.sizingChart} />
         </View>
       </Modal>
-      
-      <Popup
-       visible={popupVisible}
-       message={popupMessage}
-       onClose={handleClosePopup}
-      />
 
+      <Popup
+        visible={popupVisible}
+        message={popupMessage}
+        onClose={handleClosePopup}
+      />
     </View>
   );
 }

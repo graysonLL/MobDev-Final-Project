@@ -6,16 +6,24 @@ const margin = 10;
 const itemWidth = (width - margin * 2) / 2;
 
 const FavoritesStyles = StyleSheet.create({
+  listContainer: {
+    width: "100%",
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginTop: 10,
+    backgroundColor: "white",
+  },
   itemContainer: {
-    marginBottom: 5,
     padding: 10,
-    backgroundColor: "#f0f0f0",
-    borderRadius: 5,
-    alignItems: "center",
+    width: itemWidth,
     justifyContent: "center",
     height: "auto",
-    borderWidth: 1, // Specify the border width
-    borderColor: "#000", // Specify the border color
+  },
+  rowItems: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   itemTitle: {
     fontSize: 16,
@@ -24,8 +32,10 @@ const FavoritesStyles = StyleSheet.create({
   itemPrice: {
     fontSize: 14,
     color: "gray",
+    fontWeight: "bold",
   },
-  itemBody: {
+
+  itemColor: {
     fontSize: 12,
     color: "gray",
   },
@@ -33,6 +43,18 @@ const FavoritesStyles = StyleSheet.create({
     width: 150, // Adjust the width as needed
     height: 100, // Adjust the height as needed
     marginVertical: 10, // Add some space above and below the image
+  },
+  removeButton: {
+    alignItems: "center",
+    marginTop: 10,
+  },
+  trashBin: {
+    height: 50,
+    width: 50,
+  },
+  topPortion: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });
 

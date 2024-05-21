@@ -3,7 +3,6 @@ import { ScrollView, View, Text, Image, TouchableOpacity } from "react-native";
 import HomeStyles from "../styles/HomeStyles";
 import ShoesData from "../resources/ShoesData";
 
-
 const MainContent = ({ navigation, products, brands }) => {
   const shoes = ShoesData();
   return (
@@ -168,7 +167,6 @@ const MainContent = ({ navigation, products, brands }) => {
                 <Text style={HomeStyles.shoePrice}>$ {products[0].price}</Text>
               </View>
             </TouchableOpacity>
-
           </View>
         </ScrollView>
       </View>
@@ -177,47 +175,95 @@ const MainContent = ({ navigation, products, brands }) => {
         <Text style={HomeStyles.headerText}>Popular Brands</Text>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           <View style={{ marginLeft: 20, flexDirection: "row" }}>
-
-            <TouchableOpacity style={HomeStyles.brandContainer}
-             onPress={()=>navigation.navigate("Search Result", {data:shoes, input:'adidas'})}>
-            <View>
-              <Image source={brands[0].image} style={HomeStyles.brandImages}/>
-              <Text style={{fontSize: 15}}>Adidas</Text>
-            </View>
+            <TouchableOpacity
+              style={HomeStyles.brandContainer}
+              onPress={() =>
+                navigation.navigate("Search Result", {
+                  data: shoes,
+                  input: "adidas",
+                })
+              }
+            >
+              <View>
+                <Image
+                  source={brands[0].image}
+                  style={HomeStyles.brandImages}
+                />
+                <Text style={{ fontSize: 15 }}>Adidas</Text>
+              </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={HomeStyles.brandContainer}
-             onPress={()=>navigation.navigate("Search Result", {data:shoes, input:'nike'})}>
-            <View style={HomeStyles.brandContainer}>
-              <Image source={brands[1].image} style={HomeStyles.brandImages} />
-              <Text style={{fontSize: 15}}>Nike</Text>
-            </View>
+            <TouchableOpacity
+              style={HomeStyles.brandContainer}
+              onPress={() =>
+                navigation.navigate("Search Result", {
+                  data: shoes,
+                  input: "nike",
+                })
+              }
+            >
+              <View style={HomeStyles.brandContainer}>
+                <Image
+                  source={brands[1].image}
+                  style={HomeStyles.brandImages}
+                />
+                <Text style={{ fontSize: 15 }}>Nike</Text>
+              </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={HomeStyles.brandContainer} 
-             onPress={()=>navigation.navigate("Search Result", {data:shoes, input:'converse'})}>
-            <View style={HomeStyles.brandContainer}>
-              <Image source={brands[2].image} style={HomeStyles.brandImages} />
-              <Text style={{fontSize: 15}}>Converse</Text>
-            </View>
+            <TouchableOpacity
+              style={HomeStyles.brandContainer}
+              onPress={() =>
+                navigation.navigate("Search Result", {
+                  data: shoes,
+                  input: "converse",
+                })
+              }
+            >
+              <View style={HomeStyles.brandContainer}>
+                <Image
+                  source={brands[2].image}
+                  style={HomeStyles.brandImages}
+                />
+                <Text style={{ fontSize: 15 }}>Converse</Text>
+              </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={HomeStyles.brandContainer}
-             onPress={()=>navigation.navigate("Search Result", {data:shoes, input:'jordan'})}>
-            <View style={HomeStyles.brandContainer}>
-              <Image source={brands[3].image} style={HomeStyles.brandImages} />
-              <Text style={{fontSize: 15}}>Air Jordan</Text>
-            </View>
+            <TouchableOpacity
+              style={HomeStyles.brandContainer}
+              onPress={() =>
+                navigation.navigate("Search Result", {
+                  data: shoes,
+                  input: "jordan",
+                })
+              }
+            >
+              <View style={HomeStyles.brandContainer}>
+                <Image
+                  source={brands[3].image}
+                  style={HomeStyles.brandImages}
+                />
+                <Text style={{ fontSize: 15 }}>Air Jordan</Text>
+              </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={HomeStyles.brandContainer}
-             onPress={()=>navigation.navigate("Search Result", {data:shoes, input:'off-white'})}>
-            <View style={HomeStyles.brandContainer}>
-              <Image source={brands[4].image} style={HomeStyles.brandImages} />
-              <Text style={{fontSize: 15}}>Off-White</Text>
-            </View>
+            <TouchableOpacity
+              style={HomeStyles.brandContainer}
+              onPress={() =>
+                navigation.navigate("Search Result", {
+                  data: shoes,
+                  input: "off-white",
+                })
+              }
+            >
+              <View style={HomeStyles.brandContainer}>
+                <Image
+                  source={brands[4].image}
+                  style={HomeStyles.brandImages}
+                />
+                <Text style={{ fontSize: 15 }}>Off-White</Text>
+              </View>
             </TouchableOpacity>
-
           </View>
         </ScrollView>
       </View>

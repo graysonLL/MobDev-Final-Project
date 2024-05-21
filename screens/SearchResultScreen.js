@@ -35,7 +35,7 @@ export default function SearchResultScreen({ route }) {
   });
 
   const handleBack = () => {
-    navigation.navigate("Search");
+    navigation.goBack();
   };
 
   const handlePressOutside = () => {
@@ -104,7 +104,8 @@ export default function SearchResultScreen({ route }) {
                   </View>
                   <View>
                     <Text style={SearchStyles.itemTitle}>{item.title}</Text>
-                    <Text style={SearchStyles.itemBody}>{item.body}</Text>
+                    <Text style={SearchStyles.itemPrice}>${item.price}</Text>
+                    <Text style={SearchStyles.itemBody}>{item.color}</Text>
                   </View>
                 </TouchableOpacity>
               )}

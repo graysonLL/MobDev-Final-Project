@@ -5,15 +5,14 @@ const { width } = Dimensions.get("window");
 const margin = 10;
 const itemWidth = (width - margin * 2) / 2;
 
-
 const ProductScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'transparent'
+    backgroundColor: "transparent",
   },
   scrollContainer: {
     flexGrow: 1,
-    paddingBottom: 100, 
+    paddingBottom: 100,
   },
   mainContainer: {
     flex: 1,
@@ -25,8 +24,8 @@ const ProductScreenStyles = StyleSheet.create({
   },
   picContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     height: 270,
   },
   itemImage: {
@@ -37,63 +36,63 @@ const ProductScreenStyles = StyleSheet.create({
   sizeContainer: {
     marginTop: 10,
     marginBottom: 25,
-    flexDirection: 'row',
+    flexDirection: "row",
     height: 50,
-    borderWidth: 1, 
-    overflow: 'hidden',
+    borderWidth: 1,
+    overflow: "hidden",
     borderRadius: 10,
   },
   sizeText: {
     marginLeft: 10,
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
-  favoritesContainer:{
-    flexDirection: 'row',
-    borderWidth: 1, 
-    borderColor: 'green',
+  favoritesContainer: {
+    flexDirection: "row",
+    borderWidth: 1,
+    borderColor: "green",
     height: 50,
     marginBottom: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 25,
-    backgroundColor: 'green'
+    backgroundColor: "green",
   },
-  infoContainer:{   
+  infoContainer: {
     //borderWidth: 1, //commentable
     padding: 10,
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   infoText: {
     marginTop: 7,
-    color: 'gray',
-    textAlign: 'justify',
+    color: "gray",
+    textAlign: "justify",
     fontSize: 15,
   },
   dropDownContainer: {
     //borderWidth: 1,
     width: 115,
     height: 50,
-    justifyContent: 'center'
+    justifyContent: "center",
   },
-  dropDown : {
+  dropDown: {
     height: 50,
     width: 116,
   },
-  priceContainer:{
+  priceContainer: {
     //borderWidth: 1, //commentable
     width: 110,
-    flexDirection:'column',
+    flexDirection: "column",
     paddingLeft: 20,
   },
-  buttonsContainer:{
-    backgroundColor: 'white',
+  buttonsContainer: {
+    backgroundColor: "white",
     elevation: 5,
     //borderWidth: 1,   //commentable
-    flexDirection: 'row',
+    flexDirection: "row",
     padding: 10,
-    overflow: 'hidden',
-    justifyContent:'space-between'
+    overflow: "hidden",
+    justifyContent: "space-between",
   },
   buyButton: {
     width: 180,
@@ -107,20 +106,30 @@ const ProductScreenStyles = StyleSheet.create({
     color: "white",
     fontSize: 16,
   },
-  sizingChartContainer:{
+  sizingChartContainer: {
     height: 300,
     marginBottom: 50,
   },
-  sizingChart:{
-    height: 325, 
-    alignSelf: 'center', 
-    resizeMode: 'contain'
+  sizingChart: {
+    height: 325,
+    alignSelf: "center",
+    resizeMode: "contain",
   },
-  closeButton:{
+  closeButton: {
     marginLeft: 5,
     fontSize: 15,
   },
-  
+  alreadyFavoritedContainer: {
+    flexDirection: "row",
+    borderWidth: 1,
+    borderColor: "red",
+    height: 50,
+    marginBottom: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 25,
+    backgroundColor: "red",
+  },
 });
 
 export default ProductScreenStyles;
