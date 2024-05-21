@@ -60,6 +60,7 @@ export default function CheckoutScreen({ route }) {
       !currentUser.postalCode &&
       !currentUser.shippingNumber
     ) {
+      navigation.navigate('Profile');
       return Alert.alert('Error', 'Please fill in all shipping details in your Profile page before confirming your order.');
     }
 
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   contentContainer: {
-    paddingBottom: 40, // Adding padding to the bottom of the ScrollView
+    paddingBottom: 40, 
   },
   heading: {
     fontSize: 20,

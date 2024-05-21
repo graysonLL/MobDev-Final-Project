@@ -40,17 +40,18 @@ const FavoritesStyles = StyleSheet.create({
     color: "gray",
   },
   itemImage: {
-    width: 150, // Adjust the width as needed
-    height: 100, // Adjust the height as needed
-    marginVertical: 10, // Add some space above and below the image
+    width: 150, 
+    height: 100, 
+    marginVertical: 10,
+    
   },
   removeButton: {
     alignItems: "center",
     marginTop: 10,
   },
   trashBin: {
-    height: 50,
-    width: 50,
+    height: 40,
+    width: 40,
   },
   topPortion: {
     flexDirection: "row",

@@ -71,9 +71,9 @@ const SearchResultStyles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "flex-start",
     width: "100%",
-    borderTopWidth: 1, // Border on top
-    borderBottomWidth: 1, // Border on bottom
-    borderColor: "lightgrey", // Border color
+    borderTopWidth: 1, 
+    borderBottomWidth: 1, 
+    borderColor: "lightgrey", 
     padding: 0,
   },
   categoryText: {
